@@ -40,7 +40,7 @@ Ask questions publicly in the Piazza group.
 1. You might want to [**Clone**][ref-clone] this repository to your computer
   2. (This assignment is just one README.md file, so you can edit it right in github without cloning if you like)
 1. Modify the README.md file and [**commit**][ref-commit] changes to complete your solution.
-1. [**Push**][ref-push]/sync the changes up to GitHub (your account's copy).
+1. [**Push**][ref-push]/sync the changes up to your GitHub (skip this if you didn't clone)
 1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
 
 <!-- Links -->
