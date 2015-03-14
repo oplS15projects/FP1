@@ -1,6 +1,8 @@
 # Final Project Assignment 1: Exploration (FP1) 
 DUE March/25/2005
 
+Full assignment specfication is [on Piazza.][piazza]
+
 Write your report right in this file. Instructions are below. You can delete them if you like, or just leave them at the bottom.
 You are allowed to change/delete anything in this file to make it into your report. It will be public, FYI.
 
@@ -42,6 +44,7 @@ Ask questions publicly in the Piazza group.
 1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
 
 <!-- Links -->
+[piazza]: https://piazza.com/class/i55is8xqqwhmr?cid=411
 [markdown]: https://help.github.com/articles/markdown-basics/
 [forking]: https://guides.github.com/activities/forking/
 [ref-clone]: http://gitref.org/creating/#clone
