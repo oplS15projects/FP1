@@ -2,6 +2,7 @@
 DUE March/25/2005
 
 Write your report right in this file. Instructions are below. You can delete them if you like, or just leave them at the bottom.
+You are allowed to change/delete anything in this file to make it into your report. It will be public, FYI.
 
 This file is formatted with the [**markdown** language][markdown], so take a glance at how that works.
 
