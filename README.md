@@ -1,5 +1,5 @@
 # Final Project Assignment 1: Exploration (FP1) 
-DUE March/25/2005
+DUE March 25, 2015 Wednesday (2015-03-25)
 
 Full assignment specfication is [on Piazza.][piazza]
 
