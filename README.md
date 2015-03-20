@@ -34,7 +34,7 @@ The narrative itself should be no longer than 350 words. Yes, you can add more f
 
 Ask questions publicly in the Piazza group.
 
-Narrative
+
 
 ### How to Do and Submit this assignment
 
