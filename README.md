@@ -24,6 +24,8 @@ Code is super easy in markdown, which you can easily do inline `(require net/url
 ### My Library: (library name here)
 Write what you did!
 Remember that this report must include:
+hi
+bye
  
 * a narrative of what you did
 * the code that you wrote
