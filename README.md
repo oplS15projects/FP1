@@ -8,10 +8,10 @@ For this first solo project I used the RackUnit API which provides both a GUI an
 My project takes these bottlenose perl scripts and converts them into Racket test cases to be run in the RackUnit API. This way you can easily source your file that has all the procedure definitions and test your code. My script can change the perl tests into a Racket file with a test suite with test cases for that specific assignment, and then also create a Racket file that can run this test suite in either the GUI or the textual interface. This way a student can easily make a change in the source file and see what difference makes not for one test case at a time manually, but all test cases at once. In my script you can specify the assignment name, the name of the bottlenose perl test file (usually test.t), and testing mode (GUI or text).
 
 So for example, the following bottlenose perl test case would be this:
-ok(scm_equal(scm_eval("(abs-using-cond -3)"), 3), "(abs-using-cond -3)");
+`ok(scm_equal(scm_eval("(abs-using-cond -3)"), 3), "(abs-using-cond -3)");`
 
 Then my script would change that test case to this:
-(test-case "(abs-using-cond -3)" (check-equal? (abs-using-cond -3) 3))
+`(test-case "(abs-using-cond -3)" (check-equal? (abs-using-cond -3) 3))`
  
 More specifically, these were the relevant require statements for the libraries I used.
 * `(require racket/file)`
@@ -37,14 +37,14 @@ If you want better explanations, go on over to the Explanations section.
 I will specify what parameters were used in the following output pictures. In my case I ran this script on ps1.
 
 ##### GUI Runner
-* (define file-lines (file->lines "test.t"))
-* (define assn-name "ps1")
-* (define scheme-area-file-lines (create-test-area-lines assn-name "make-gui-runner"))
+* `(define file-lines (file->lines "test.t"))`
+* `(define assn-name "ps1")`
+* `(define scheme-area-file-lines (create-test-area-lines assn-name "make-gui-runner"))`
 
 ##### Textual Interface
-* (define file-lines (file->lines "test.t"))
-* (define assn-name "ps1")
-* (define scheme-area-file-lines (create-test-area-lines assn-name "run-tests"))
+* `(define file-lines (file->lines "test.t"))`
+* `(define assn-name "ps1")`
+* `(define scheme-area-file-lines (create-test-area-lines assn-name "run-tests"))`
 
 #### Running the script
 
@@ -52,9 +52,9 @@ I will specify what parameters were used in the following output pictures. In my
 
 2. After the script is run, the suite and area file are generated. [Here is a **picture** including the generated files][after-script-2].
 
-3. If you specified "make-gui-runner" as the test mode, you get a nice [**GUI** window][gui-script-3].
+3. If you specified `"make-gui-runner"` as the test mode, you get a nice [**GUI** window][gui-script-3].
 
-4. If you specified "run-tests" as the test mode, you get the [**textual** interface][text-script-3].
+4. If you specified `"run-tests"` as the test mode, you get the [**textual** interface][text-script-3].
 
 ### Explanations
 
