@@ -14,21 +14,21 @@ Then my script would change that test case to this:
 (test-case "(abs-using-cond -3)" (check-equal? (abs-using-cond -3) 3))
  
 More specifically, these were the relevant require statements for the libraries I used.
-* (require racket/file)
-* (require rackunit)
-* (require rackunit/text-ui)
-* (require rackunit/gui)
+* `(require racket/file)`
+* `(require rackunit)`
+* `(require rackunit/text-ui)`
+* `(require rackunit/gui)`
 
 ### Script
 
 To see the code I wrote for this converter, [see **bottlenose_to_racket.rkt**][bottle-rkt]. I've commented the code in a way that splits up the different parts of its functionality, and hopefully it is able to guide the reader as to how it works.
  
 I can however give a high level overview of what this script does.
-1. Read in all lines from the bottlenose perl test script.
-2. Obtain all the test cases in the perl test script and convert them to Racket test cases.
-3. Create a list of strings that represent what to write out to the Racket file containing the test suite.
-4. Create a list of strings that represent what to write out to the Racket file containing the test area (the script that runs the test cases).
-5. display-lines-to-file is used to write these strings out to the test suite and test area files.
+* Read in all lines from the bottlenose perl test script.
+* Obtain all the test cases in the perl test script and convert them to Racket test cases.
+* Create a list of strings that represent what to write out to the Racket file containing the test suite.
+* Create a list of strings that represent what to write out to the Racket file containing the test area (the script that runs the test cases).
+* `display-lines-to-file` is used to write these strings out to the test suite and test area files.
 
 If you want better explanations, go on over to the Explanations section.
 
@@ -60,7 +60,7 @@ I will specify what parameters were used in the following output pictures. In my
 
 This section goes over the define statements you see in the MAIN of the script.
 
-`all-tests`
+#### all-tests
 * A list with sublists containing three elements: input, expected value, and name for each test case.
 * In `get-all-test-information`, `zip` is used here to line up the input, expected value, and name for each test in parallel.
 ```
@@ -96,14 +96,14 @@ This section goes over the define statements you see in the MAIN of the script.
   ("(smallest-tripled 30 20 10)" "30" "(smallest-tripled 30 20 10)"))
 ```
 
-`suite-file-header`
+#### suite-file-header
 * A list of strings representing lines to write at the top of the suite file.
 * `make-suite-header` allows the require statement of the assignment source file to be generalized.
 ```
 '("#lang racket\n" "(require rackunit)" "(require \"ps1.rkt\")\n")
 ```
 
-`bottlenose-suite`
+#### bottlenose-suite
 * A list of strings representing lines to write in the middle of the suite file.
 * `create-test-suite` takes the assignment name and `all-tests` to write out the big part of the suite file.
 ```
@@ -144,14 +144,14 @@ This section goes over the define statements you see in the MAIN of the script.
   ")\n;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;\n")
 ```
 
-`suite-file-footer`
+#### suite-file-footer
 * A list of strings representing lines to write at the bottom of the suite file.
 * `create-test-suite-list` determines what the `test-list` definition will be. This is the suite list that will be run in the area file.
 ```
 '("(define test-list (list" "  ps1" "))\n" "(provide (all-defined-out))\n")
 ```
 
-`scheme-suite-file-lines`
+#### scheme-suite-file-lines
 * A list of strings representing all lines to write out to the test suite file.
 ```
 '("#lang racket\n"
@@ -198,7 +198,7 @@ This section goes over the define statements you see in the MAIN of the script.
   "(provide (all-defined-out))\n")
 ```
 
-`scheme-area-file-lines`
+#### scheme-area-file-lines
 * A list of strings representing all lines to write out to the test area file.
 ```
 '("#lang racket\n"
@@ -217,7 +217,7 @@ This section goes over the define statements you see in the MAIN of the script.
 At this point you see how the line formatting will work in the output files. These files have everything they need to know about how to run the tests. The limitation is that the original source file (in this case, ps1.rkt) needs to have the provide statement at the end of it or the script will come up with unbound identifier errors. A `(provide (all-defined-out))` statement at the end of the source file will fix this problem.
   
 <!-- Links -->
-[bottle-rkt]:
+[bottle-rkt]: https://github.com/Dossar/FP1/blob/master/bottlenose_to_racket.rkt
 [before-script-1]: https://raw.githubusercontent.com/Dossar/FP1/master/gui_test/pt1.png
 [after-script-2]: https://raw.githubusercontent.com/Dossar/FP1/master/gui_test/pt2.png
 [gui-script-3]: https://raw.githubusercontent.com/Dossar/FP1/master/gui_test/pt3_gui.png
