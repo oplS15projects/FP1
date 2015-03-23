@@ -34,7 +34,15 @@ I can however give a high level overview of what this script does.
 * Create a list of strings that represent what to write out to the Racket file containing the test area (the script that runs the test cases).
 * `display-lines-to-file` is used to write these strings out to the test suite and test area files.
 
-If you want better explanations, go on over to the Explanations section.
+If you want better explanations, go on over to the Explanations section. If you want to run this script on your own source file, I recommend the following:
+* Put your ps1.rkt file in a directory along with the test.t file for ps1.
+* Make sure you have the `(provide (all-defined-out))` statement at the end of your ps1.rkt file or you will get unbound identifier errors in the area file generated.
+* Put bottlenose_to_racket.rkt in the same directory as ps1.rkt and test.t, then run bottlenose_to_racket.rkt; ps1_suite.rkt and ps1_area.rkt should appear in the same directory after.
+* Run ps1_area.rkt and see the results of your procedure definitions to the test cases.
+* As a side note, the above works with the following define statements in bottlenose_to_racket.rkt and say we want to run with the GUI:
+  * `(define file-lines (file->lines "test.t"))`
+  * `(define assn-name "ps1")`
+  * `(define scheme-area-file-lines (create-test-area-lines assn-name "make-gui-runner"))`
 
 ### Output
 
