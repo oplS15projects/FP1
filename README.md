@@ -8,10 +8,14 @@ For this first solo project I used the RackUnit API which provides both a GUI an
 My project takes these bottlenose perl scripts and converts them into Racket test cases to be run in the RackUnit API. This way you can easily source your file that has all the procedure definitions and test your code. My script can change the perl tests into a Racket file with a test suite with test cases for that specific assignment, and then also create a Racket file that can run this test suite in either the GUI or the textual interface. This way a student can easily make a change in the source file and see what difference makes not for one test case at a time manually, but all test cases at once. In my script you can specify the assignment name, the name of the bottlenose perl test file (usually test.t), and testing mode (GUI or text).
 
 So for example, the following bottlenose perl test case would be this:
-`ok(scm_equal(scm_eval("(abs-using-cond -3)"), 3), "(abs-using-cond -3)");`
+```
+ok(scm_equal(scm_eval("(abs-using-cond -3)"), 3), "(abs-using-cond -3)");
+```
 
 Then my script would change that test case to this:
-`(test-case "(abs-using-cond -3)" (check-equal? (abs-using-cond -3) 3))`
+```
+(test-case "(abs-using-cond -3)" (check-equal? (abs-using-cond -3) 3))
+```
  
 More specifically, these were the relevant require statements for the libraries I used.
 * `(require racket/file)`
@@ -34,7 +38,7 @@ If you want better explanations, go on over to the Explanations section.
 
 ### Output
 
-I will specify what parameters were used in the following output pictures. In my case I ran this script on ps1.
+I will specify what parameters were used in the following output pictures. In my case I ran this script on ps1's test.t file.
 
 ##### GUI Runner
 * `(define file-lines (file->lines "test.t"))`
