@@ -1,53 +1,28 @@
 # Final Project Assignment 1: Exploration (FP1) 
+
+By Tyler Alterio
+
 DUE March 25, 2015 Wednesday (2015-03-25)
 
-Full assignment specfication is [on Piazza.][piazza]
+### My Library: racket/gui
 
-Write your report right in this file. Instructions are below. You can delete them if you like, or just leave them at the bottom.
-You are allowed to change/delete anything in this file to make it into your report. It will be public, FYI.
+So when the project was announced I had no idea what to write. I figured the project would have a little more structure. Instead it's literally just "You have to write some application." So I figured I'd pick a very generic library. Some library that could be applied to any application. I figured every program needs a front-end, therefore I decided to take a look at what GUI forms Racket had to offer.
 
-This file is formatted with the [**markdown** language][markdown], so take a glance at how that works.
+Rather simply, I googled "racket gui" and was brought to [this webpage][racket-gui]. After reading on, I saw the GUI toolbox is seperated into two catagories:
 
-This file IS your report for the assignment, including code and your story.
+* Windowing - For implementing windows, buttons, menus, text fields, and more.
+* Editors - For developing text editors and free-form layout editors.
 
-Code is super easy in markdown, which you can easily do inline `(require net/url)` or do in whole blocks:
-```
-#lang racket
+The second part sounds interesting, however I doubt I'd need such a complicated system. I want to see how far I can get with the simple windowing kit. Also it seems as though the first catagory is more like GUI libraries that I've used. So for the most part I'll stick to windowing.
 
-(require net/url)
+I learned that Racket is object oriented. Now I'm not against object-oriented code in a LISP, I write Clojure for god's sake, but the way Racket handles objets seems weird. It seems like some sort of prototyping model. You use the `new` function to clone an initial object (which by naming convention ends with a %) and override it's fields. So...
 
-(define myurl (string->url "http://www.cs.uml.edu/"))
-(define myport (get-pure-port myurl))
-(display-pure-port myport)
-```
+```(define frame (new frame% [label "Example"]))```
 
-### My Library: (library name here)
-Write what you did!
-Remember that this report must include:
- 
-* a narrative of what you did
-* the code that you wrote
-* output from your code demonstrating what it produced
-* any diagrams or figures explaining your work 
- 
-The narrative itself should be no longer than 350 words. Yes, you can add more files and link or refer to them. This is github, handling files is awesome and easy!
+This code defines frame as a new object of `frame%`, overiding the label field to be the string "Example". I guess all the other fields stay as their own default value. Some fields are required, but the majority of them are optional. This at least makes sense for GUI objects because they are mostly static. It also seems there is a `send` function that runs the method of an object that can change the state of some fields. So this just boiled down to making objects and seeing how there worked with each other.
 
-Ask questions publicly in the Piazza group.
+So I ended up making 4 objects. A frame, which is just the window that holds everything. The other 3 objects list the frame as it's parent. The parent contains it's children, and destructs them when it is destructed. I made a text box for user input. I also made a text message for ouput. And then a button to run the code. For proof of concept I created a program makes a window that converts celsius to fahrenheit, because who uses the metric system? I am including the code in the pull request along side this README.md.
 
-### How to Do and Submit this assignment
-
-1. To start, [**fork** this repository][forking].
-1. You might want to [**Clone**][ref-clone] this repository to your computer
-  2. (This assignment is just one README.md file, so you can edit it right in github without cloning if you like)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your solution.
-1. [**Push**][ref-push]/sync the changes up to your GitHub (skip this if you didn't clone)
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
 
 <!-- Links -->
-[piazza]: https://piazza.com/class/i55is8xqqwhmr?cid=411
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+[racket-gui]: http://docs.racket-lang.org/gui/
