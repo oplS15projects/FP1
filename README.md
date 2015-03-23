@@ -1,53 +1,66 @@
 # Final Project Assignment 1: Exploration (FP1) 
 DUE March 25, 2015 Wednesday (2015-03-25)
 
-Full assignment specfication is [on Piazza.][piazza]
+# OPL-Project
+## Exploration of the Icon Library
+######by Alex Nevers
 
-Write your report right in this file. Instructions are below. You can delete them if you like, or just leave them at the bottom.
-You are allowed to change/delete anything in this file to make it into your report. It will be public, FYI.
+ For the beginning of the final project I began by exploring the icon section of the picture library, as I was interested in how racket handled generated images.  The icon library is well populated, and it turns out many icons in racket are made of several smaller overlapping icons. One example as I reproduced was the first output of my tests, overlapping the step icon with the record icon. The record icon was changed from red to green using the #:color tag, as well downsizing the icon. The step icon was then super imposed over the record icon to result in the first icon on the output.
 
-This file is formatted with the [**markdown** language][markdown], so take a glance at how that works.
+ The next output is a list of varying bomb icons. The height for the bombs was increased by using a list of height values plugged into the for/list procedure, as well as having the icon material value changed by a material list. The for/list procedure was also used to print the individual frames from the running man animation used when compiling code in racket, as shown in the final output.
 
-This file IS your report for the assignment, including code and your story.
+ Similarly, for the polygon list, a polygon was generated for all sides in range from 1 to 9, with the icon material and color cycled through from two lists of material types and color values, respectively.
 
-Code is super easy in markdown, which you can easily do inline `(require net/url)` or do in whole blocks:
-```
-#lang racket
+ Checking out the icon library is interesting, and being able to create new icons from super imposing pre existing ones, along with changing height, color, and material values, seems to lead to a lot of possible combinations. I feel a bit out of my depth when it comes to the new procedures used to mess with these images and icons, but it is interesting.
 
-(require net/url)
 
-(define myurl (string->url "http://www.cs.uml.edu/"))
-(define myport (get-pure-port myurl))
-(display-pure-port myport)
-```
+####Output
 
-### My Library: (library name here)
-Write what you did!
-Remember that this report must include:
- 
-* a narrative of what you did
-* the code that you wrote
-* output from your code demonstrating what it produced
-* any diagrams or figures explaining your work 
- 
-The narrative itself should be no longer than 350 words. Yes, you can add more files and link or refer to them. This is github, handling files is awesome and easy!
+Capture of output from the below program [here.](http://imgur.com/loVFnSB)
 
-Ask questions publicly in the Piazza group.
 
-### How to Do and Submit this assignment
-
-1. To start, [**fork** this repository][forking].
-1. You might want to [**Clone**][ref-clone] this repository to your computer
-  2. (This assignment is just one README.md file, so you can edit it right in github without cloning if you like)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your solution.
-1. [**Push**][ref-push]/sync the changes up to your GitHub (skip this if you didn't clone)
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-<!-- Links -->
-[piazza]: https://piazza.com/class/i55is8xqqwhmr?cid=411
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+####Test Code
+    #lang racket
+     (require pict images/icons/control images/icons/style)
+     (require images/icons/misc)
+     (require images/logos)
+     (require images/icons/stickman)
+     
+     ;;Step Icon superimposed on Record Icon;;
+     
+    (pict->bitmap
+      (cc-superimpose
+       (bitmap (record-icon #:color "forestgreen" #:height 32
+                            #:material plastic-icon-material))
+       (bitmap (step-icon #:color light-metal-icon-color #:height 15
+                          #:material rubber-icon-material))))
+      
+      ;;Bomb Icon list with changed icon material and varying sizes;;
+      
+    (for/list ([material  (list plastic-icon-material
+                              rubber-icon-material
+                              glass-icon-material
+                              metal-icon-material)]
+            [height (list 30 35 40 45)])
+    (bomb-icon #:height height #:material material))
+      
+      ;;Polygon List with cyclical color and icon material changes;;
+     
+       (for/list ([sides  (in-range 1 9)]
+             [material  (in-cycle (list plastic-icon-material
+                                        glass-icon-material
+                                        metal-icon-material
+                                        rubber-icon-material))]
+             [color     (in-cycle (list "cornflowerblue" 
+                                        "forestgreen" 
+                                        "tomato"))])
+  
+    (regular-polygon-icon sides #:color color #:height 32
+                          #:material material))
+      
+      ;;Stickman Running animation frames in list;;
+      
+      (for/list ([t  (in-range 0 1 1/12)])
+    (running-stickman-icon t #:height 32))
+    
+    
