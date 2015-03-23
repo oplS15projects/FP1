@@ -104,11 +104,6 @@
       (string-append "  (test-case \"" (caddr sublist) "\" (check-equal? " (car sublist) " " (cadr sym-to-number) "))")
       (string-append "  (test-case \"" (caddr sublist) "\" (check-equal? " (car sublist) " " (cadr sublist) "))")))
 
-(define (test-cases-to-one-string current test-cases)
-  (if (null? test-cases)
-      current
-      (test-cases-to-one-string (string-append current (car test-cases)) (cdr test-cases))))
-
 (define (create-test-suite suite-name test-cases)
   (define suite-header (list ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
                              (string-append "(define-test-suite " suite-name)
