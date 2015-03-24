@@ -1,53 +1,30 @@
 # Final Project Assignment 1: Exploration (FP1) 
 DUE March 25, 2015 Wednesday (2015-03-25)
 
-Full assignment specfication is [on Piazza.][piazza]
+Patrick Quaratiello
 
-Write your report right in this file. Instructions are below. You can delete them if you like, or just leave them at the bottom.
-You are allowed to change/delete anything in this file to make it into your report. It will be public, FYI.
+Code:
 
-This file is formatted with the [**markdown** language][markdown], so take a glance at how that works.
-
-This file IS your report for the assignment, including code and your story.
-
-Code is super easy in markdown, which you can easily do inline `(require net/url)` or do in whole blocks:
 ```
 #lang racket
+(require games/cards)
 
-(require net/url)
+(define (offset i) 
+  (cond((equal? i 0) (values 0 0))
+       (else (values (* 72 (modulo i 13)) (* 98 (quotient i 13))))))
 
-(define myurl (string->url "http://www.cs.uml.edu/"))
-(define myport (get-pure-port myurl))
-(display-pure-port myport)
+(define deck (make-deck))
+(define table (make-table "Table" 14 5))
+(send table add-cards deck 0 0 offset)	
+
+(send table show #t)
+
 ```
 
-### My Library: (library name here)
-Write what you did!
-Remember that this report must include:
- 
-* a narrative of what you did
-* the code that you wrote
-* output from your code demonstrating what it produced
-* any diagrams or figures explaining your work 
- 
-The narrative itself should be no longer than 350 words. Yes, you can add more files and link or refer to them. This is github, handling files is awesome and easy!
+My Library: "Cards: Virtual Playing Cards Library"
 
-Ask questions publicly in the Piazza group.
+With this library, I created a seperate popup window used as a "table" that the cards are then placed on using the table procedure. I then created a deck and then placed cards on the previously created table using the deck and add-cards procedure. The cards on the table can be moved by dragging them and flipped over by double clicking them. They have card faces, and the deck procedure creates every card in a deck in order, and then when I placed them on the table they go from King to Ace left to right, and then Spade, Heart, Diamond and Club going down a column. The offset function does this, which I had to create and pass to add-cards.
 
-### How to Do and Submit this assignment
+[Image of the "table" before moving cards] (https://github.com/patqrtll/FP1/blob/master/Images/FP1/Cards_ProjectA1_002.png)
 
-1. To start, [**fork** this repository][forking].
-1. You might want to [**Clone**][ref-clone] this repository to your computer
-  2. (This assignment is just one README.md file, so you can edit it right in github without cloning if you like)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your solution.
-1. [**Push**][ref-push]/sync the changes up to your GitHub (skip this if you didn't clone)
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-<!-- Links -->
-[piazza]: https://piazza.com/class/i55is8xqqwhmr?cid=411
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+[Image of the "table" with some cards flipped and moved around] (https://github.com/patqrtll/FP1/blob/master/Images/FP1/Cards_ProjectA1_001.png)
