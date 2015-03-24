@@ -26,9 +26,22 @@ Write what you did!
 Remember that this report must include:
  
 * a narrative of what you did
+
+I called the math library, then called pi in bigfloat.
+
 * the code that you wrote
+
+#lang racket
+(require math)
+pi.bf
+
 * output from your code demonstrating what it produced
+
+(bf #e3.141592653589793238462643383279502884195)
+
 * any diagrams or figures explaining your work 
+
+None
  
 The narrative itself should be no longer than 350 words. Yes, you can add more files and link or refer to them. This is github, handling files is awesome and easy!
 
