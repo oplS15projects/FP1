@@ -1,0 +1,43 @@
+html, body {
+        margin: 0px;
+        padding: 0px;
+        font-family: helvetica;
+    }
+div.header {
+        width: 100%;
+        height: 50px;
+        float:left;
+        background: #000;
+        box-shadow:1px 1px 1px #333;
+    }
+div.title {
+        color:#fff;
+        font-size: 30px;
+        padding-left: 10px;
+        line-height: 50px;
+        float:left;
+    }
+div.menu ul {
+        list-style-type: none;
+        float:left;
+    }
+div.menu ul li {
+        float:left;
+    }
+div.menu ul li a {
+        padding: 10px;
+        text-decoration: none;
+        color: #fff;
+    }
+div.menu ul li a:hover {
+        background: #333;
+        text-decoration: underline;
+    }
+div.content {}
+div.footer {}
+img.logo {
+        height: 40px;
+        width: 40px;
+        margin: 5px 15px;
+        float:left;
+    }
