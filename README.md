@@ -53,7 +53,7 @@ The playNote procedure then takes note and duration (integer) arguments and play
 
 Ex:
 ```
-  (define (playNote note length)
+(define (playNote note length)
   (play note)
   (sleep length))
 ```
