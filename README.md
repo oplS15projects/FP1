@@ -1,16 +1,7 @@
 # Final Project Assignment 1: Exploration (FP1) 
 DUE March 25, 2015 Wednesday (2015-03-25)
 
-Full assignment specfication is [on Piazza.][piazza]
 
-Write your report right in this file. Instructions are below. You can delete them if you like, or just leave them at the bottom.
-You are allowed to change/delete anything in this file to make it into your report. It will be public, FYI.
-
-This file is formatted with the [**markdown** language][markdown], so take a glance at how that works.
-
-This file IS your report for the assignment, including code and your story.
-
-Code is super easy in markdown, which you can easily do inline `(require net/url)` or do in whole blocks:
 ```
 #lang racket
 
@@ -32,26 +23,28 @@ I decided to experiment with the library’s piano tones.  I did this because it
 The current strategy for controlling the rhythm of notes being played is to call a sleep procedure to halt the system for a given amount of time, allowing the note to sustain.
 
 For example:
-
+```
 (play (piano-tone 48))
 (sleep 1)
 (play (piano-tone 54))
 (sleep 2)
+```
 
 The code above plays a piano tone with midi number 48 (C4 on a piano), then pauses for one second while the note sustains. The program then plays midi-note 54 (G4 on a piano) and pauses for two seconds while the note sustains. This pattern can be repeated to play a particular melody of pitches with durations. I have abstracted this pattern away into a few procedures and definitions that are much easier to use. This is described in the following section. I’d also like to mention that from what I understand, the rsound library has a much more sophisticated way to control a sequence of notes rather than calling sleep to control their durations. This is something I intend to spend some time learning and experimenting with, but have not yet done so at this time. 
 
 I began by first defining a series of rsound objects using the piano-tone procedure, giving them their formal musical names. 
 
 Ex:
-
+```
 (define e3 (piano-tone 40))
 (define f3 (piano-tone 41))
 (define f#3 (piano-tone 42))
+```
 
 I then created tempo and note-duration definitions. By default, a quarter note (one beat in 4/4 time) is one second (60 bpm). All other note durations are defined similarly. 
 
 Ex:
-
+```
 (define tempo 1)
 
 (define trip (/ .333 tempo))
@@ -59,25 +52,28 @@ Ex:
 (define quarter (/ 1 tempo))
 (define half (/ 2 tempo))
 (define whole (/ 4 tempo))
+```
 
 The tempo variable allows for the length of time for each note duration to be reduced, making the melody faster as the tempo is increased. 
 
 The playNote procedure then takes note and duration (integer) arguments and plays the given note for the appropriate amount of time. 
 
 Ex:
-
+```
   (define (playNote note length)
   (play note)
   (sleep length))
+```
 
 This allows somewhat complex melodies to be generated simply by providing the formal note name and the note duration.
 
 Ex:
-
+```
 (playNote d4 trip)
 (playNote c5 half)
 (playNote g4 quarter)
 (playNote f4 trip)
+```
 
 My next plan for the project is to store these sequences of notes and durations in lists so that entire melodies can be called by name, rather than built manually note by note. 
 
