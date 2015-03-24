@@ -1,8 +1,7 @@
-# Final Project Assignment 1: Exploration (FP1) 
-DUE March 25, 2015 Wednesday (2015-03-25)
-Name: Michael Overy
+## Final Project Assignment 1: Exploration (FP1) DUE March 25, 2015 Wednesday (2015-03-25)
 
-## Library: Cards: Virtual Playing Cards Library
+#### Library: Cards: Virtual Playing Cards Library
+
 
 So, before I settled on playing around with this card library, I tried out a few things like openssl and pson but couldn't figure out how to get them to work in a meaningful way, so I decided to pick something relatively easy to work with to become accustomed to the documentation.
 
