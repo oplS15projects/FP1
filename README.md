@@ -110,4 +110,4 @@ I found that the documentation and resoources for constructing webpages is lacki
 ```
 
 <!-- Links -->
-[link]:github
+[link]:http://josefflores.github.io/
