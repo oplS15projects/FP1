@@ -36,6 +36,7 @@ Ask questions publicly in the Piazza group.
 
 ### How to Do and Submit this assignment
 
+
 1. To start, [**fork** this repository][forking].
 1. You might want to [**Clone**][ref-clone] this repository to your computer
   2. (This assignment is just one README.md file, so you can edit it right in github without cloning if you like)
