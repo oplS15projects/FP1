@@ -133,9 +133,3 @@ Ex:
 ```
 
 My next plan for the project is to store these sequences of notes and durations in lists so that entire melodies can be called by name, rather than built manually note by note. 
-
-* output from your code demonstrating what it produced
-* any diagrams or figures explaining your work 
- 
-
-
