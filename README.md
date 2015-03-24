@@ -3,6 +3,8 @@ DUE March 25, 2015 Wednesday (2015-03-25)
 
 ### Experimenting with the RSound/piano-tones library. 
 
+<h3>Introduction</h3>
+
 For the first part our final project I decided to play around with the ‘RSound’ library.  From the description on the library’s site: “This collection provides a means to represent, read, write, play and manipulate sounds.”
 
 The full description can be found here: http://pkg-build.racket-lang.org/doc/rsound/index.html
@@ -20,6 +22,8 @@ For example:
 ```
 
 The code above plays a piano tone with midi number 48 (C4 on a piano), then pauses for one second while the note sustains. The program then plays midi-note 54 (G4 on a piano) and pauses for two seconds while the note sustains. This pattern can be repeated to play a particular melody of pitches with durations. I have abstracted this pattern away into a few procedures and definitions that are much easier to use. This is described in the following section. I’d also like to mention that from what I understand, the rsound library has a much more sophisticated way to control a sequence of notes rather than calling sleep to control their durations. This is something I intend to spend some time learning and experimenting with, but have not yet done so at this time. 
+
+<h3>Program Description</h3>
 
 I began by first defining a series of rsound objects using the piano-tone procedure, giving them their formal musical names. 
 
@@ -63,6 +67,8 @@ Ex:
 (playNote g4 quarter)
 (playNote f4 trip)
 ```
+
+My next plan for the project is to store these sequences of notes and durations in lists so that entire melodies can be called by name, rather than built manually note by note. 
 
 <h3>Program Code</h3>
 
@@ -132,4 +138,4 @@ Ex:
 
 ```
 
-My next plan for the project is to store these sequences of notes and durations in lists so that entire melodies can be called by name, rather than built manually note by note. 
+
