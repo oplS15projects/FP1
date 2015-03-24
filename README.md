@@ -11,9 +11,11 @@ As I explored the library, I realized that I would have to do a bit of figuring 
 There are a couple important parts you have to include to be able to play any card-game using this library. First of all, you need a shuffled deck of cards, and a playing space.
 
 `; Create a table to play on
+
 (define table (make-table "52 Pick-up" 13 4))
 
 ; Get a deck of cards, shuffle it.
+
 (define deck (shuffle-list (make-deck) 4))`
 
 When run, this code will create a window with enough space to fit 13 cards across and 4 cards down side by side. The deck is not yet visible. Since this is a game of 52-pick-up, I want to scatter the cards across the table, so I simply map over the deck sending each card to a random location.
