@@ -1,7 +1,7 @@
 # Final Project Assignment 1: Exploration (FP1) 
 DUE March 25, 2015 Wednesday (2015-03-25)
 
-### My Library: (rsound)
+### Experimenting with the RSound/piano-tones library. 
 
 For the first part our final project I decided to play around with the ‘RSound’ library.  From the description on the library’s site: “This collection provides a means to represent, read, write, play and manipulate sounds.”
 
