@@ -1,7 +1,7 @@
 # Final Project Assignment 1: Exploration (FP1) 
 DUE March 25, 2015 Wednesday (2015-03-25)
 
-Full assignment specfication is [on Piazza.][piazza]
+Full assignment specification is [on Piazza.][piazza]
 
 Write your report right in this file. Instructions are below. You can delete them if you like, or just leave them at the bottom.
 You are allowed to change/delete anything in this file to make it into your report. It will be public, FYI.
@@ -34,9 +34,11 @@ Code is super easy in markdown, which you can easily do inline `(require net/url
 (send frame show #t)
 ```
 
-### My Library: The Racket Graphical Interface Toolkit
+### My Library: [The Racket Graphical Interface Toolkit](http://docs.racket-lang.org/gui/index.html)
 
-I wrote an application that creates a simple GUI: a frame with a static message and a non-functional button. 
+I wrote an application that creates a simple GUI: a frame with a static message and a non-functional button.
+[Rkt file](https://github.com/oplS15projects/FP1/pull/10/files)
+[Output that shows the frame](https://github.com/oplS15projects/FP1/pull/10/files) 
 
 
 
