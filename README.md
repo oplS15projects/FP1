@@ -19,9 +19,25 @@ a narrative of what you did
 
  ```
  
- ![Alt text](Graph1.jpg "Square(x) Plot Window")
+ ![Alt text](Graph1.jpg "Square(x) Plot Window.")
  
  This call to plot provides an x-range of -10 to 10, and a label of the line being graphed. The plot can also be zoomed in on and moved around.
- Did I change?
  
+ Other graph types are available as well, such as histograms/bar charts. There was a pretty neat example that estimated the area under a curve using a sequence of histograms.
+ 
+ ```
+ 
+ (require (only-in plot/utils linear-seq))
+ (define (f x) (exp (* -1/2 (sqr x))))
+ (plot (list (area-histogram f (linear-seq -4 4 10))
+               (function f -4 4)))
+			
+```
 
+![Alt text](Graph2.png "Area under curve estimation.")
+
+This was a pretty cool interplay of the graphs and possibilities of data acquisition from them. There are also some nice isometric 3D renders that can be made as well. They had another cool example of histogram over numerous axis, representing a type of force displacement.
+
+![Alt text](Graph3.jpeg "Force Dispersion.")
+
+Overall, this library provides a very straight forward, easy to understand procedures and utilities for graphing simple or complex data, quickly and easily.
