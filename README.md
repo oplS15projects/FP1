@@ -120,7 +120,7 @@ My next plan for the project is to store these sequences of notes and durations 
 (playNote g3 trip)
 (playNote g3 trip)
 (playNote c4 half)
-(playNote g4 half)
+(playNote g4 quarter)
 (playNote f4 trip)
 (playNote e4 trip)
 (playNote d4 trip)
