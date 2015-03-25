@@ -66,4 +66,5 @@ For example, I quickly made a flatten procedure to turn my tree into a simple li
  (remove* "\r\n" (flatten (read test)))
  '(Camelot King_Arthur person gender "Male" duty Occupation "King Of Camelot")
  ```
+ 
 
