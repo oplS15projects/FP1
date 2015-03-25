@@ -116,9 +116,11 @@ I now decided that since I have these parts on the screen lets try to make them 
 ```
 
 The output of this code can be seen in the following screen shot.
-
+#####Init
 ![alt text](https://github.com/Caravetta/FP1/blob/master/Buttoncanvas1.png "Window Screenshot")
+#####Start Clicked
 ![alt text](https://github.com/Caravetta/FP1/blob/master/Buttoncanvas2.png "Window Screenshot")
+#####Stop Clicked
 ![alt text](https://github.com/Caravetta/FP1/blob/master/Buttoncanvas3.png "Window Screenshot")
 
 I found that the basic GUI library was very easy to pick up and work with, I found that it was alot like how things are handled in JavaScript. I really look forward to expanding my knowledge of the GUI library and mybe tackling harding problems with it.
