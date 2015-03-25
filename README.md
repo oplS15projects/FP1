@@ -13,3 +13,6 @@ I decided for the first exploration assignment to look at how a GUI can be creat
 
 ```
 
+The output of this code was just a simple frame/window that can be seen below.
+
+pic here::::::::::::::::::::::
