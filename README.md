@@ -11,5 +11,9 @@ I made some of my own modifications to the documentation code to allow for a use
 
 ##Output
 
-###Active app
+Saving audio to a file:
+![saving audio file](https://github.com/ktwaco/FP1/blob/master/output_pics/saving_file.png)
+
+Playing audio with a media player:
+![playing audio file](https://github.com/ktwaco/FP1/blob/master/output_pics/playing_file.png)
 
