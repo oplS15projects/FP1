@@ -21,8 +21,19 @@ Code is super easy in markdown, which you can easily do inline `(require net/url
 (display-pure-port myport)
 ```
 
-### My Library: (library name here)
+### My Library: Plot 
 Write what you did!
+
+I started by reading part of the first section of the accompanying racket documentation, then modifying the given function from a sin function that went from negative pi to pi to a cosine function that went from zero to two pi.
+The pertinent code is as follows:
+
+(require plot)
+(plot (function cos(- 0) (* 2 pi) #:label "y = cos(x)"))
+
+which generated this image:
+
+
+
 Remember that this report must include:
  
 * a narrative of what you did
