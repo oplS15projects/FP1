@@ -1,39 +1,58 @@
 # Final Project Assignment 1: Exploration (FP1) 
 DUE March 25, 2015 Wednesday (2015-03-25)
 
-Full assignment specfication is [on Piazza.][piazza]
+### My Library: racket/gui
 
-Write your report right in this file. Instructions are below. You can delete them if you like, or just leave them at the bottom.
-You are allowed to change/delete anything in this file to make it into your report. It will be public, FYI.
-
-This file is formatted with the [**markdown** language][markdown], so take a glance at how that works.
-
-This file IS your report for the assignment, including code and your story.
-
-Code is super easy in markdown, which you can easily do inline `(require net/url)` or do in whole blocks:
+I decided to go with the basic GUI library that is included in racket. I figure that no matter what kind of program I decide to do, having a basic GUI will be important to the program. First I started by just copying and pasting the basic code from the tutorial. This looked something like this:
 ```
-#lang racket
+(define frame (new frame% [label "Example"]))
+ 
+(define msg (new message% [parent frame]
+                          [label "No events so far..."]))
+ 
+(new button% [parent frame]
+             [label "Click Me"]
+             ; Callback procedure for a button click:
+             [callback (lambda (button event)
+                         (send msg set-label "Button click"))])
+ 
+(send frame show #t)
+```
+After this, I started to dive deeper into the tutorial and was able to alter the window to have a few different buttons that did different things. The final window that I was able to produce had three buttons, Left, Close, and Right. Left and Right would echo that their respective button was clicked, while Close closed the window. The coee looked like this:
 
-(require net/url)
+```
+(define frame (new frame% (label "Final Project 1")))
+ 
+(define msg (new message% (parent frame)
+                          (label "Click a button.")))
+ 
+(define panel (new horizontal-panel% (parent frame)))
+(new button% (parent panel)
+             (label "Left")
+             (callback (lambda (button event)
+                         (send msg set-label "Left click!"))))
+(new button% (parent panel) 
+     (label "Close")
+     (callback (lambda (button event)
+                         (send frame show #f))))
+(new button% (parent panel)
+             (label "Right")
+             (callback (lambda (button event)
+                         (send msg set-label "Right click!"))))
 
-(define myurl (string->url "http://www.cs.uml.edu/"))
-(define myport (get-pure-port myurl))
-(display-pure-port myport)
+(send frame show #t)
 ```
 
-### My Library: (library name here)
-Write what you did!
-Remember that this report must include:
- 
-* a narrative of what you did
-* the code that you wrote
-* output from your code demonstrating what it produced
-* any diagrams or figures explaining your work 
- 
-The narrative itself should be no longer than 350 words. Yes, you can add more files and link or refer to them. This is github, handling files is awesome and easy!
+This is the window that was created by the code above:
 
-Ask questions publicly in the Piazza group.
+![alt text](https://github.com/stuarttomkins/FP1/blob/master/window.png "Window Screenshot")
 
+In terms of output from the interperter, all that was outputted when the code was run was:
+  ```
+  (object:button% ...)
+  (object:button% ...)
+  (object:button% ...)
+   ```
 ### How to Do and Submit this assignment
 
 1. To start, [**fork** this repository][forking].
