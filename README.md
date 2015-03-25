@@ -10,7 +10,15 @@ I decided for the first exploration assignment to look at how a GUI can be creat
 ####Basic Frame Code:
 
 ```
+#lang racket
 
+(require racket/gui/base)
+
+(define frame (new frame%
+                   [label "Canvas Control Example"]
+                   [width 400]
+                   [height 200]))
+(send frame show #t)
 ```
 
 The output of this code was just a simple frame/window that can be seen below.
