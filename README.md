@@ -17,3 +17,6 @@ Saving audio to a file:
 Playing audio with a media player:
 ![playing audio file](https://github.com/ktwaco/FP1/blob/master/output_pics/playing_file.png)
 
+The saved audio can be found on github and here:
+![link to my file](https://soundcloud.com/goooon/c5-tone)
+
