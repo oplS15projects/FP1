@@ -12,23 +12,29 @@ This file IS your report for the assignment, including code and your story.
 
 Code is super easy in markdown, which you can easily do inline `(require net/url)` or do in whole blocks:
 ```
-#lang racket
 
-(require net/url)
 
-(define myurl (string->url "http://www.cs.uml.edu/"))
-(define myport (get-pure-port myurl))
-(display-pure-port myport)
-```
+### My Library: (SMTP: sending E-mail)
+In Racket Documentation I have selected smtp sending E-mail library and I go through all the stuff gave in the library and it is quite similar way of sending an E-mail but we have to use some commands to implement in racket environment below are the commands
 
-### My Library: (library name here)
-Write what you did!
-Remember that this report must include:
+(require net/smtp):The net/smtp module provides tools for sending electronic mail messages using SMTP. 
+we have to give (smtp-send-message	) to send message 
+
+(server-address :) this Connects to the server at server-address and port-no to send a message. this will include from: which tell us where the mail came from and To: tells us where to send mail.
+
+header: The header argument is the complete message header. A header is represented as a string or byte string containing CRLF-delimited lines. In addition, the header ends with two CRLFs 
+
+message: The message argument is the body of the message, where each string or byte string in the list corresponds to a single line of message text.
+
+port no:The  port-no argument—which can be specified either with the #:port-no keyword.
+
+username : is the keyword used to add a username.
+password: is used to give a password
+
+tcp-connect: is used to connect as a client to a listing server.
+
  
-* a narrative of what you did
-* the code that you wrote
-* output from your code demonstrating what it produced
-* any diagrams or figures explaining your work 
+the output I got like I got a new window opened and i got some errors like should enter auth-user, auth-password and after I cleared the errors  it gave me username and password to enter   
  
 The narrative itself should be no longer than 350 words. Yes, you can add more files and link or refer to them. This is github, handling files is awesome and easy!
 
