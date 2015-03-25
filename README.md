@@ -38,6 +38,6 @@ a narrative of what you did
 
 This was a pretty cool interplay of the graphs and possibilities of data acquisition from them. There are also some nice isometric 3D renders that can be made as well. They had another cool example of histogram over numerous axis, representing a type of force displacement.
 
-![Alt text](Graph3.jpeg "Force Dispersion.")
+![Alt text](Graph3.jpg "Force Dispersion.")
 
 Overall, this library provides a very straight forward, easy to understand procedures and utilities for graphing simple or complex data, quickly and easily.
