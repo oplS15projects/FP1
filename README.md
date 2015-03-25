@@ -23,7 +23,7 @@ I decided for the first exploration assignment to look at how a GUI can be creat
 
 The output of this code was just a simple frame/window that can be seen below.
 
-pic here::::::::::::::::::::::
+![alt text](https://github.com/Caravetta/FP1/blob/master/Framescreen.png "Window Screenshot")
 
 I next decided to see how I could add a button on to frame/window because whats a GUI with out buttons. The next iteration of the code that includes a simple button is below.
 
