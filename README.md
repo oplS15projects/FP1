@@ -19,7 +19,7 @@ I was particularly interested in the different renderers offered by the plot lib
 *Note: Also included are the basic math library for Euler's number, as well as the linear-seq sampling utility to help with the histogram.*
 
 First, I tried the simple real function plot renderer, which simply plots a supplied function over a supplied range of inputs. I handed it the standard logistic curve, with the following results:  
-![Logistic Curve Output](http://i.imgur.com/EQPywgg.png)  
+![Logistic Curve Output](http://i.imgur.com/BsPyqGX.png)  
 
 Next, I extended this example by giving plot a list of renderers (here, only two) to show the curve as well as an approximation of the area under it:
 ```
@@ -29,7 +29,7 @@ Next, I extended this example by giving plot a list of renderers (here, only two
 Which yields the following plot:
 ![Histogram Output](http://i.imgur.com/1gBHG5e.png)
 
-The histogram renderer is of particular value, as it could be used in conjunction with other libraries, a sound-related one for example, to provide instantaneous or perhaps real-time analysis of data attributes such as frequency distribution in the case of audio.
+The histogram renderer is of particular value, as it could be used in conjunction with other libraries, a sound-related one for example, to provide instantaneous or perhaps real-time visualization of data attributes such as frequency distribution in the case of audio.
 
 ### My Library: (library name here)
 Write what you did!
