@@ -1,4 +1,4 @@
-# Final Project Assignment 1: Exploration (FP1) 
+# Final Project Assignment 1: Exploration (FP1)
 DUE March/25/2005
 
 ### My Libraries: racket/gui, rsound, portaudio and ffi/vector
@@ -8,11 +8,10 @@ I like music, sound and I play guitar as a hobby, poorly. I would like my final 
 
 ##Code
 
+```
 #lang racket
 
-
-```
-;; require libraries
+;; libraries used
 (require racket/gui
          rsound
          ffi/vector)
@@ -21,21 +20,23 @@ I like music, sound and I play guitar as a hobby, poorly. I would like my final 
 ;;;;;;;;;;;;;;;;;;;SOUND CODE;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(define pitch  523.253) ;; C5
-(define sample-rate 44100.0) ;; how many times we sample a sound. the higher the more realistic.
-(define tpisr (* 2 pi (/ 1.0 sample-rate))) ;; 2pi * 44100.0, i took this from the racket documents.
-;;(define volume .05) ;; affects amplitude of sin wave affecting it's loudness.
+(define pitch  523.253) ;; will play a C5 pitched note
 
-(define vec (make-s16vector (* 88200 2))) ;; creates an array of 16 bit ints of len 88200 * 2
+(define sample-rate 44100.0) ;; how many times we sample a sound. the higher the more realistic.
+(define tpisr (* 2 pi (/ 1.0 sample-rate))) ;; i took this from the documentation for portaudio.
+
+(define vec (make-s16vector (* 88200 2))) ;; creates an array of 16 bit ints of length 88200 * 2
 
 (define (set-sample index volume)
-  ;; code copied from documentation that was originally within a C style for loop.
+  ;; copied code from documentation that was originally within a C style for loop.
+  ;; added a volume parameter for adjusting the amplittude of the sine wave for changing the loudness of the tone to be played.
   (define sample (real->s16 (* volume (sin (* tpisr index pitch)))))
   (s16vector-set! vec (* 2 index) sample)
   (s16vector-set! vec (add1 (* 2 index)) sample))
 
 ;; fills the array with sine wave samples.
 (define (fill-vec vol)
+  ;; modified documentation code that does the same thing as this procedure, but was in the C style.
   (define (helper curr-ind len ret-val)
     (if (> curr-ind len)
         (void) ;; return nothing.
@@ -68,8 +69,11 @@ I like music, sound and I play guitar as a hobby, poorly. I would like my final 
                     [min-value 0]
                     [max-value 10]
                     [init-value 5]
+                    ;; as the slider is moved by the user the callback procedure is executed.
                     [callback (lambda (control event)
+                                ;; stop current tone
                                 (stop)
+                                ;; play tone with adjusted volume
                                 (play (create-tone (/ (send slider get-value) 80))))]))
 
 ; Make a button in the frame
@@ -87,15 +91,11 @@ I like music, sound and I play guitar as a hobby, poorly. I would like my final 
 
 Write what you did!
 Remember that this report must include:
- 
-* a narrative of what you did
-* the code that you wrote
-* output from your code demonstrating what it produced
-* any diagrams or figures explaining your work 
- 
-The narrative itself should be no longer than 350 words. Yes, you can add more files and link or refer to them. This is github, handling files is awesome and easy!
 
-Ask questions publicly in the Piazza group.
+* a narrative of what you did
+* output from your code demonstrating what it produced
+
+The narrative itself should be no longer than 350 words. Yes, you can add more files and link or refer to them. This is github, handling files is awesome and easy!
 
 ### How to Do and Submit this assignment
 
@@ -107,8 +107,6 @@ Ask questions publicly in the Piazza group.
 1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
 
 <!-- Links -->
-[piazza]: https://piazza.com/class/i55is8xqqwhmr?cid=411
-[markdown]: https://help.github.com/articles/markdown-basics/
 [forking]: https://guides.github.com/activities/forking/
 [ref-clone]: http://gitref.org/creating/#clone
 [ref-commit]: http://gitref.org/basic/#commit
