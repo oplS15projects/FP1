@@ -1,7 +1,7 @@
 # Final Project Assignment 1: Exploration (FP1) 
 DUE March 25, 2015 Wednesday (2015-03-25)
 
-Full assignment specfication is [on Piazza.][piazza]
+Full assignment specification is [on Piazza.][piazza]
 
 Write your report right in this file. Instructions are below. You can delete them if you like, or just leave them at the bottom.
 You are allowed to change/delete anything in this file to make it into your report. It will be public, FYI.
@@ -12,27 +12,35 @@ This file IS your report for the assignment, including code and your story.
 
 Code is super easy in markdown, which you can easily do inline `(require net/url)` or do in whole blocks:
 ```
-#lang racket
+#lang racket/gui
 
-(require net/url)
+(require racket/gui/base)
 
-(define myurl (string->url "http://www.cs.uml.edu/"))
-(define myport (get-pure-port myurl))
-(display-pure-port myport)
+; Make a frame by instantiating the frame% class
+(define frame (new frame% [label "Example"]))
+ 
+; Make a static text message in the frame
+(define msg (new message% [parent frame]
+                          [label "No events so far..."]))
+ 
+; Make a button in the frame
+(new button% [parent frame]
+             [label "Click Me"]
+             ; Callback procedure for a button click:
+             [callback (lambda (button event)
+                         (send msg set-label "Button click"))])
+ 
+; Show the frame by calling its show method
+(send frame show #t)
 ```
 
-### My Library: (library name here)
-Write what you did!
-Remember that this report must include:
- 
-* a narrative of what you did
-* the code that you wrote
-* output from your code demonstrating what it produced
-* any diagrams or figures explaining your work 
- 
-The narrative itself should be no longer than 350 words. Yes, you can add more files and link or refer to them. This is github, handling files is awesome and easy!
+### My Library: [The Racket Graphical Interface Toolkit](http://docs.racket-lang.org/gui/index.html)
 
-Ask questions publicly in the Piazza group.
+I wrote an application that creates a simple GUI: a frame with a static message and a non-functional button.
+[Rkt file](https://github.com/oplS15projects/FP1/pull/10/files)
+[Output that shows the frame](https://github.com/oplS15projects/FP1/pull/10/files) 
+
+
 
 ### How to Do and Submit this assignment
 
