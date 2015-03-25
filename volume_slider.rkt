@@ -73,6 +73,18 @@
                          (stop) ;; prevent multiple presses from overlapping the tones playing.
                          (play (create-tone  (/ (send slider get-value) 80))))])
 
+(define f-path (new text-field%
+                    [parent frame]
+                    [label "where to save to"]))
+
+; Make a button in the frame
+(new button% [parent frame]
+             [label "click to save sound."]
+             ; Callback procedure for a button click:
+             [callback (lambda (button event) ;; executed when a botton is clicked!
+                         (rs-write (create-tone  (/ (send slider get-value) 80)) (send f-path get-value))
+                         (display "wrote to file!"))])
+
 ; Show the frame by calling its show method
 ;;(send frame show #f)
 (display-frame frame)
