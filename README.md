@@ -1,53 +1,70 @@
-# Final Project Assignment 1: Exploration (FP1) 
-DUE March 25, 2015 Wednesday (2015-03-25)
+#### My Library: XML Parsing and Writing
 
-Full assignment specfication is [on Piazza.][piazza]
+The first library that I decided to explore is XML:Parsing and Writing. It's the one I'm most familiar with since I took a class with Professor Heines who taught me the basics of the xml format. 
 
-Write your report right in this file. Instructions are below. You can delete them if you like, or just leave them at the bottom.
-You are allowed to change/delete anything in this file to make it into your report. It will be public, FYI.
-
-This file is formatted with the [**markdown** language][markdown], so take a glance at how that works.
-
-This file IS your report for the assignment, including code and your story.
-
-Code is super easy in markdown, which you can easily do inline `(require net/url)` or do in whole blocks:
-```
-#lang racket
-
-(require net/url)
-
-(define myurl (string->url "http://www.cs.uml.edu/"))
-(define myport (get-pure-port myurl))
-(display-pure-port myport)
+My first code written for this library is a simple parsing procedure that reads my xml file called "Test.xml".  
+The contents of the xml file is as following:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Camelot><King_Arthur><person gender="Male"/><duty Occupation="King Of Camelot"/></King_Arthur</Camelot>
 ```
 
-### My Library: (library name here)
-Write what you did!
-Remember that this report must include:
+and the code I wrote was:
+```scheme
+(define (test) (open-input-file "Test.xml") )
+
+(define (read t)(xml->xexpr (document-element
+               (read-xml (t)))))
+               
+```
+Evaluating the procedure gave me the following:
+```scheme
+ (read test)                           
+'(Camelot () (King_Arthur () (person ((gender "Male"))) (duty ((Occupation "King Of Camelot")))))                        
+```                            
+It produced a list with a similar structure to the one in my xml file. Which is convenient because I can use tree operations to manipulate it.
+
+Eventually I formatted my xml file to look presentable by putting the elements in their own line. The reason for this was because I wanted to see the overall structure more clearly.
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Camelot>
+<King_Arthur>
+<person gender="Male"/>
+<duty Occupation="King Of Camelot"/>
+</King_Arthur>
+</Camelot>
+```
+
+However my first code produced a interesting output which reflected the change I did earlier.
+
+```scheme
+ '(Camelot
+  ()
+  "\r\n"
+  (King_Arthur
+   ()
+  "\r\n"
+  (person ((gender "Male")))
+   \r\n"
+   (duty ((Occupation "King Of Camelot")))
+   "\r\n")
+   "\r\n")
+  ```
+Every element is accompanied by "\r\n" which is the window's equivalent of newline. Of course this gets annoying as you need to account for this in each newline you make. Fortunately there are many ways to deal with this problem. 
+
+For example, I quickly made a flatten procedure to turn my tree into a simple list. From there I used the Remove* procedure to take the newline characters out which leaves me with a nice and clean list.
+
+```scheme
+(define (flatten x)
+    (cond ((null? x) '())
+          ((not (pair? x)) (list x))
+          (else (append (flatten (car x))
+                        (flatten (cdr x))))))
+ ```            
+ Output:
+ ```
+ (remove* "\r\n" (flatten (read test)))
+ '(Camelot King_Arthur person gender "Male" duty Occupation "King Of Camelot")
+ ```
  
-* a narrative of what you did
-* the code that you wrote
-* output from your code demonstrating what it produced
-* any diagrams or figures explaining your work 
- 
-The narrative itself should be no longer than 350 words. Yes, you can add more files and link or refer to them. This is github, handling files is awesome and easy!
 
-Ask questions publicly in the Piazza group.
-
-### How to Do and Submit this assignment
-
-1. To start, [**fork** this repository][forking].
-1. You might want to [**Clone**][ref-clone] this repository to your computer
-  2. (This assignment is just one README.md file, so you can edit it right in github without cloning if you like)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your solution.
-1. [**Push**][ref-push]/sync the changes up to your GitHub (skip this if you didn't clone)
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-<!-- Links -->
-[piazza]: https://piazza.com/class/i55is8xqqwhmr?cid=411
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
