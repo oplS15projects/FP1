@@ -47,7 +47,7 @@ I next decided to see how I could add a button on to frame/window because whats 
 
 The output of the basic button code can be seen below in the screen shot.
 
-pic here::::::::::::::::::::::
+![alt text](https://github.com/Caravetta/FP1/blob/master/buttonscreen.png "Window Screenshot")
 
 After I was able to add the button in I next looked at adding a canvas so that I was able to draw something on the frame of the GUI. The canvas allowed me to draw things such as lines, shapes, and text. I found that in some ways it was alot like the canvas that is seen when using HTML. The code used to generate the canvas is seen below.
 
@@ -75,7 +75,7 @@ After I was able to add the button in I next looked at adding a canvas so that I
 
 The output of the basic canvas code can be seen in the screen shot below.
 
-pic here:::::::::::::::::::::::
+![alt text](https://github.com/Caravetta/FP1/blob/master/Canvasscreen.png "Window Screenshot")
 
 I now decided that since I have these parts on the screen lets try to make them intract with each other. To do this I decided to have two buttons one being start and the other being stop. The start button when clicked will draw the text starting on the canvas, and when the stop button is clicked it will draw the text stopping on the canvas. The code to do this can be seen below.
 
@@ -117,6 +117,8 @@ I now decided that since I have these parts on the screen lets try to make them 
 
 The output of this code can be seen in the following screen shot.
 
-pic here::::::::::::::::::::::::
+![alt text](https://github.com/Caravetta/FP1/blob/master/ButtonCanvas1.png "Window Screenshot")
+![alt text](https://github.com/Caravetta/FP1/blob/master/ButtonCanvas2.png "Window Screenshot")
+![alt text](https://github.com/Caravetta/FP1/blob/master/ButtonCanvas3.png "Window Screenshot")
 
 I found that the basic GUI library was very easy to pick up and work with, I found that it was alot like how things are handled in JavaScript. I really look forward to expanding my knowledge of the GUI library and mybe tackling harding problems with it.
