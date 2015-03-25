@@ -2,10 +2,11 @@
 DUE March 25, 2015 Wednesday (2015-03-25)
 
 ### My Library: Stickman Icons
-Write what you did!
-Remember that this report must include:
- 
+
 * a narrative of what you did
+
+I worked with the Stickman Icons library. I first created the original standing stickman icon that is used in Racket. Next, I created a two more standing stickman icon, changing the colors and height of each. I then created two running stickman icons. Each of the running stickman icons shows a different frames from when it is running. Lastly, I changed the running stickman icons' colors and height and created a list showing all the 12 different frames of it running.
+
 * the code that you wrote
 
 ```
