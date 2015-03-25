@@ -1,4 +1,5 @@
 # Final Project Assignment 1: Exploration (FP1) 
+Joshua Caravetta
 DUE March 25, 2015 Wednesday (2015-03-25)
 
 ### My Library: racket/GUI
@@ -28,4 +29,10 @@ The output of the basic button code can be seen below in the screen shot.
 
 pic here::::::::::::::::::::::
 
+After I was able to add the button in I next looked at adding a canvas so that I was able to draw something on the frame of the GUI. The canvas allowed me to draw things such as lines, shapes, and text. I found that in some ways it was alot like the canvas that is seen when using HTML. The code used to generate the canvas is seen below.
 
+####Basic Canvas Code:
+
+```
+
+```
