@@ -1,53 +1,51 @@
-# Final Project Assignment 1: Exploration (FP1) 
-DUE March 25, 2015 Wednesday (2015-03-25)
+I plan to do a small scheme game with my partner. It might use the gui part, so in final project exploration#1, I focus on the libraries about graphic user interface.I explored the library racekt/gui.  The first thing of building GUI is to crate Windows and drawing in canvases. I choose the library: gui/base and framework from http://docs.racket-lang.org/.. This program creates a frame with a text message and a button, when the user clicks the button, the message changes.  I add an event callback procedure to continue after click “ok” button. 
 
-Full assignment specfication is [on Piazza.][piazza]
+When running the code. It would come out a window called LOGIN. (picture1). Users can type his ID and password, then click OK. There appears a new window called information. (picture2). This window is consider as a container for users’ information. Then minimize the window, back to the LOGIN window, user can get a “quit” window after close the LOGIN window.(picture3). 
 
-Write your report right in this file. Instructions are below. You can delete them if you like, or just leave them at the bottom.
-You are allowed to change/delete anything in this file to make it into your report. It will be public, FYI.
+Code:  
 
-This file is formatted with the [**markdown** language][markdown], so take a glance at how that works.
+#lang racket 
 
-This file IS your report for the assignment, including code and your story.
+(require racket/gui/base) 
 
-Code is super easy in markdown, which you can easily do inline `(require net/url)` or do in whole blocks:
-```
-#lang racket
+(require framework) 
 
-(require net/url)
+(define frame (new frame% 
 
-(define myurl (string->url "http://www.cs.uml.edu/"))
-(define myport (get-pure-port myurl))
-(display-pure-port myport)
-```
+                   [label "INFORMATION"] 
 
-### My Library: (library name here)
-Write what you did!
-Remember that this report must include:
- 
-* a narrative of what you did
-* the code that you wrote
-* output from your code demonstrating what it produced
-* any diagrams or figures explaining your work 
- 
-The narrative itself should be no longer than 350 words. Yes, you can add more files and link or refer to them. This is github, handling files is awesome and easy!
+                   [width  600] 
 
-Ask questions publicly in the Piazza group.
+                   [height 300])) ; Make a frame by instantiating the frame% class 
 
-### How to Do and Submit this assignment
+ (define dialog (instantiate dialog% ("LOGIN"))); Add a text field to the dialog 
 
-1. To start, [**fork** this repository][forking].
-1. You might want to [**Clone**][ref-clone] this repository to your computer
-  2. (This assignment is just one README.md file, so you can edit it right in github without cloning if you like)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your solution.
-1. [**Push**][ref-push]/sync the changes up to your GitHub (skip this if you didn't clone)
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
+ (new text-field% [parent dialog] [label "ID"]) 
 
-<!-- Links -->
-[piazza]: https://piazza.com/class/i55is8xqqwhmr?cid=411
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+  (new text-field% [parent dialog] [label "PASSWORD"]) 
+
+ (define panel (new horizontal-panel% [parent dialog]  
+
+ [alignment '(center center)])) ; Add a horizontal panel to the dialog 
+
+(new button% [parent panel] [label "Ok"][callback (lambda (button event) 
+
+                         (send frame show #t))]) ; Add Ok button to the horizontal panel 
+
+(when (system-position-ok-before-cancel?) 
+
+(send panel change-children reverse)) 
+
+(send dialog show #t); Show the dialog 
+
+(new canvas% [parent frame] 
+
+             [paint-callback 
+
+              (lambda (canvas dc) 
+
+                (send dc set-scale 3 3) 
+
+                (send dc set-text-foreground "black") 
+
+                (send dc draw-text "Quit!" 0 0))]) (send frame show #t); Show the frame. 
