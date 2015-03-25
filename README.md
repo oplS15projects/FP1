@@ -1,5 +1,7 @@
 ##**Final Project Assignment 1: Exploration (FP1)**
 
+*Author*: James Kuczynski
+*Email*: James_Kuczynski@student.uml.edu
 
 ####**Narrative**
 
@@ -11,7 +13,7 @@ an abundance of time on the actual game logic; hence the validity of certain mov
 
 ####**The Code**
 
-[GameMaster.rkt][6] serves as the driver.  Since I tried to use abstraction, efficiently, this code **requires** procedures from [Bitmaps.rkt][3], [ListGenerator.rkt][4], and [MoveSequence][5], so simply copying and pasteing the code below *without* the additional files **will not compile**.
+[GameMaster.rkt][6] serves as the driver.  Since I tried to use abstraction, efficiently, this code **requires** procedures from [Bitmaps.rkt][3], [ListGenerator.rkt][4], and [MoveSequence.rkt][5], so simply copying and pasteing the code below *without* the additional files **will not compile**.
 
 Here is a snipit from [Bitmaps.rkt][3], which demonstrains how I am loading the images (as well as making them available to other files), also using ```#lang racket/gui```:
 ```
@@ -210,6 +212,7 @@ redrawing...
 ```
 
 *(note change of black rook's position)*
+
 ![ScreenShot2](https://github.com/DeepBlue14/Racket-Chess/blob/master/doc/racketChess2.png)
 
 
@@ -223,3 +226,4 @@ redrawing...
 [3]: https://github.com/DeepBlue14/Racket-Chess/blob/master/src/Bitmaps.rkt
 [4]: https://github.com/DeepBlue14/Racket-Chess/blob/master/src/ListGenerator.rkt
 [5]: https://github.com/DeepBlue14/Racket-Chess/blob/master/src/MoveSequence.rkt
+[6]: https://github.com/DeepBlue14/Racket-Chess/blob/master/src/GameMaster.rkt
