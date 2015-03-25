@@ -1,53 +1,126 @@
 # Final Project Assignment 1: Exploration (FP1) 
 DUE March 25, 2015 Wednesday (2015-03-25)
 
-Full assignment specfication is [on Piazza.][piazza]
+######Joshua Caravetta
 
-Write your report right in this file. Instructions are below. You can delete them if you like, or just leave them at the bottom.
-You are allowed to change/delete anything in this file to make it into your report. It will be public, FYI.
+### My Library: racket/GUI
 
-This file is formatted with the [**markdown** language][markdown], so take a glance at how that works.
+I decided for the first exploration assignment to look at how a GUI can be created in racket. I decide to use the basic GUI library to complete this task. The fist order of business was to see how to create a frame/window, because with out this there is no GUI. To create a basic frame I used the code below.
 
-This file IS your report for the assignment, including code and your story.
+####Basic Frame Code:
 
-Code is super easy in markdown, which you can easily do inline `(require net/url)` or do in whole blocks:
 ```
 #lang racket
 
-(require net/url)
+(require racket/gui/base)
 
-(define myurl (string->url "http://www.cs.uml.edu/"))
-(define myport (get-pure-port myurl))
-(display-pure-port myport)
+(define frame (new frame%
+                   [label "Canvas Control Example"]
+                   [width 400]
+                   [height 200]))
+(send frame show #t)
 ```
 
-### My Library: (library name here)
-Write what you did!
-Remember that this report must include:
- 
-* a narrative of what you did
-* the code that you wrote
-* output from your code demonstrating what it produced
-* any diagrams or figures explaining your work 
- 
-The narrative itself should be no longer than 350 words. Yes, you can add more files and link or refer to them. This is github, handling files is awesome and easy!
+The output of this code was just a simple frame/window that can be seen below.
 
-Ask questions publicly in the Piazza group.
+![alt text](https://github.com/Caravetta/FP1/blob/master/Framescreen.png "Window Screenshot")
 
-### How to Do and Submit this assignment
+I next decided to see how I could add a button on to frame/window because whats a GUI with out buttons. The next iteration of the code that includes a simple button is below.
 
-1. To start, [**fork** this repository][forking].
-1. You might want to [**Clone**][ref-clone] this repository to your computer
-  2. (This assignment is just one README.md file, so you can edit it right in github without cloning if you like)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your solution.
-1. [**Push**][ref-push]/sync the changes up to your GitHub (skip this if you didn't clone)
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
+####Basic Button Code:
 
-<!-- Links -->
-[piazza]: https://piazza.com/class/i55is8xqqwhmr?cid=411
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+```
+#lang racket
+
+(require racket/gui/base)
+
+(define frame (new frame%
+                   [label "Canvas Control Example"]
+                   [width 400]
+                   [height 200]))
+
+(new button% [parent frame]
+             [label "Button"]
+             [callback (lambda (button event) (sleep 5))])
+(send frame show #t)
+```
+
+The output of the basic button code can be seen below in the screen shot.
+
+![alt text](https://github.com/Caravetta/FP1/blob/master/buttonscreen.png "Window Screenshot")
+
+After I was able to add the button in I next looked at adding a canvas so that I was able to draw something on the frame of the GUI. The canvas allowed me to draw things such as lines, shapes, and text. I found that in some ways it was a lot like the canvas that is seen when using HTML. The code used to generate the canvas is seen below.
+
+####Basic Canvas Code:
+
+```
+#lang racket
+
+(require racket/gui/base)
+
+(define frame (new frame%
+                   [label "Canvas Control Example"]
+                   [width 400]
+                   [height 200]))
+
+(define canvas (new canvas% [parent frame]
+             [paint-callback
+              (lambda (canvas dc)
+                (send dc set-scale 3 3)
+                (send dc set-text-foreground "blue")
+                (send dc draw-text "Testing!" 15 0))]))
+
+(send frame show #t)
+```
+
+The output of the basic canvas code can be seen in the screen shot below.
+
+![alt text](https://github.com/Caravetta/FP1/blob/master/Canvasscreen.png "Window Screenshot")
+
+I now decided that since I have these parts on the screen lets try to make them interact with each other. To do this I decided to have two buttons one being start and the other being stop. The start button when clicked will draw the text starting on the canvas, and when the stop button is clicked it will draw the text stopping on the canvas. The code to do this can be seen below.
+
+####Basic Button Canvas Control Code:
+
+```
+#lang racket
+
+(require racket/gui/base)
+
+(define frame (new frame%
+                   [label "Canvas Control Example"]
+                   [width 400]
+                   [height 200]))
+
+(define canvas (new canvas% [parent frame]
+             [paint-callback
+              (lambda (canvas dc)
+                (send dc set-scale 3 3)
+                (send dc set-text-foreground "blue")
+                (send dc draw-text "Click a button!" 15 0))]))
+
+(new button% [parent frame]
+             [label "Start"]
+             [callback (lambda (button event) 
+                         (send (send canvas get-dc) clear)
+                         (send (send canvas get-dc) set-text-foreground "green")
+                         (send (send canvas get-dc) draw-text "Starting" 38 0))])
+
+(new button% [parent frame]
+             [label "Stop"]
+             [callback (lambda (button event) 
+                         (send (send canvas get-dc) clear)
+                         (send (send canvas get-dc) set-text-foreground "red")
+                         (send (send canvas get-dc) draw-text "Stopping" 38 0))])
+
+(send frame show #t)
+```
+
+The output of this code can be seen in the following screen shot.
+#####Init
+![alt text](https://github.com/Caravetta/FP1/blob/master/Buttoncanvas1.png "Window Screenshot")
+#####Start Clicked
+![alt text](https://github.com/Caravetta/FP1/blob/master/Buttoncanvas2.png "Window Screenshot")
+#####Stop Clicked
+![alt text](https://github.com/Caravetta/FP1/blob/master/Buttoncanvas3.png "Window Screenshot")
+
+I found that the basic GUI library was very easy to pick up and work with, I found that it was a lot like how things are handled in JavaScript. I really look forward to expanding my knowledge of the GUI library and maybe tackling harder problems with it.
