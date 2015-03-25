@@ -36,3 +36,15 @@ After I was able to add the button in I next looked at adding a canvas so that I
 ```
 
 ```
+
+The output of the basic canvas code can be seen in the screen shot below.
+
+pic here:::::::::::::::::::::::
+
+I now decided that since I have these parts on the screen lets try to make them intract with each other. To do this I decided to have two buttons one being start and the other being stop. The start button when clicked will draw the text starting on the canvas, and when the stop button is clicked it will draw the text stopping on the canvas. The code to do this can be seen below.
+
+####Basic Button Canvas Control Code:
+
+```
+
+```
