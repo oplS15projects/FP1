@@ -1,53 +1,67 @@
 # Final Project Assignment 1: Exploration (FP1) 
 DUE March 25, 2015 Wednesday (2015-03-25)
 
-Full assignment specfication is [on Piazza.][piazza]
+Name: Jerra Khorn
 
-Write your report right in this file. Instructions are below. You can delete them if you like, or just leave them at the bottom.
-You are allowed to change/delete anything in this file to make it into your report. It will be public, FYI.
+### My Library: [The Racket Graphical Interface Toolkit](http://docs.racket-lang.org/gui/index.html)
 
-This file is formatted with the [**markdown** language][markdown], so take a glance at how that works.
+`(require racket/gui)`
 
-This file IS your report for the assignment, including code and your story.
+I didn't know which library I should invest my time in because I didn't really know what my final project would be.
+Since I like games, why not do that. I decided to look into The Racket Graphical Interface Toolkit because
+I thinking leaning towards making a text-base decision game; a sort of RPG decision game where the player can
+choose an option which would change the way the game progressed.
 
-Code is super easy in markdown, which you can easily do inline `(require net/url)` or do in whole blocks:
+I went through the basic example, seeing how they worked and how they looked like when executed.
+
+This line created a window with the label "New Frame" on the top.
+
+`(define frame (new frame% [label "New Frame"]))`
+
+From then on, I could make text within the frame.
 ```
-#lang racket
-
-(require net/url)
-
-(define myurl (string->url "http://www.cs.uml.edu/"))
-(define myport (get-pure-port myurl))
-(display-pure-port myport)
+(define msg (new message% [parent frame]
+                 [label "Hello World"]))
 ```
 
-### My Library: (library name here)
-Write what you did!
-Remember that this report must include:
+I progessed to creating buttons, that when clicked, performed some action.
+
+```
+(new button% [parent frame]
+     [label "Click Me"]
+     [callback (lambda (button event)
+                 (send msg set-label "Button Clicked"))])
+ ```
  
-* a narrative of what you did
-* the code that you wrote
-* output from your code demonstrating what it produced
-* any diagrams or figures explaining your work 
+ When the button is clicked, the message in the frame that was labeled "Hello World" changes
+ to "Button Clicked".
  
-The narrative itself should be no longer than 350 words. Yes, you can add more files and link or refer to them. This is github, handling files is awesome and easy!
+ [Before Clicked](http://i.imgur.com/I5vQrfI.png)
+ 
+ [After Clicked](http://i.imgur.com/INmUtNG.png)
+ 
+ To show the actually frame, I used this line to pop up the new window.
+ 
+ `(send frame show #t)`
+ 
+ Looking at one of the examples on the racket documentation, I could also make dialog boxes where the user could type in.
+ 
+ ```
+(define dialog (instantiate dialog% ("Character Creation")))
+(new text-field% [parent dialog]
+     [label "Your Name"])
+(define panel (new horizontal-panel% [parent dialog]
+                   [alignment '(center center)]))
+(new button% [parent panel]
+     [label "Cancel"])
+(new button% [parent panel]
+     [label "Create"])
 
-Ask questions publicly in the Piazza group.
-
-### How to Do and Submit this assignment
-
-1. To start, [**fork** this repository][forking].
-1. You might want to [**Clone**][ref-clone] this repository to your computer
-  2. (This assignment is just one README.md file, so you can edit it right in github without cloning if you like)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your solution.
-1. [**Push**][ref-push]/sync the changes up to your GitHub (skip this if you didn't clone)
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-<!-- Links -->
-[piazza]: https://piazza.com/class/i55is8xqqwhmr?cid=411
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+(send dialog show #t)
+ ```
+ 
+ [Dialog Box Output](http://i.imgur.com/MUnylwj.png)
+ 
+ But in this example, clicking the buttons do not do anything.
+ I was thinking here is a good place to start having the user create a character for the game.
+ 
