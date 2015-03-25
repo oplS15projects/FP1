@@ -35,7 +35,7 @@ In this assignment, professor asks us to test one lib in racket which we are int
 one. Finally, I choose the library "web-server/web-servlet-env" to make a simple website. Because I just learn how it works 
 by HTML file. I found that is as easy as in racket. we just need do inline (require web-server/servlet 
 web-server/servlet-env). After that we need use X-expressions (xexpr) to create some lists in my website. Then, it become 
-like [this.][mphoto].
+like [MyWeb][mphoto].
 
 
 
