@@ -10,7 +10,8 @@ I like music, sound and I play guitar as a hobby, poorly. I would like my final 
 
 #lang racket
 
-'''
+
+```
 ;; require libraries
 (require racket/gui
          rsound
@@ -82,7 +83,7 @@ I like music, sound and I play guitar as a hobby, poorly. I would like my final 
 ; Show the frame by calling its show method
 ;;(send frame show #f)
 (display-frame frame)
-'''
+```
 
 Write what you did!
 Remember that this report must include:
