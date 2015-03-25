@@ -1,33 +1,43 @@
 # Final Project Assignment 1: Exploration (FP1) 
 DUE March 25, 2015 Wednesday (2015-03-25)
 
-Full assignment specfication is [on Piazza.][piazza]
-
-Write your report right in this file. Instructions are below. You can delete them if you like, or just leave them at the bottom.
-You are allowed to change/delete anything in this file to make it into your report. It will be public, FYI.
-
-This file is formatted with the [**markdown** language][markdown], so take a glance at how that works.
-
-This file IS your report for the assignment, including code and your story.
-
-Code is super easy in markdown, which you can easily do inline `(require net/url)` or do in whole blocks:
-```
-#lang racket
-
-(require net/url)
-
-(define myurl (string->url "http://www.cs.uml.edu/"))
-(define myport (get-pure-port myurl))
-(display-pure-port myport)
-```
-
-### My Library: (library name here)
+### My Library: Stickman Icons
 Write what you did!
 Remember that this report must include:
  
 * a narrative of what you did
 * the code that you wrote
+
+#lang racket
+(require images/icons/stickman)
+
+(standing-stickman-icon)
+
+(standing-stickman-icon #:body-color "blue"
+                        #:arm-color "red"
+                        #:head-color "white"
+                        #:height 50)
+
+(standing-stickman-icon #:body-color "pink"
+                        #:arm-color "green"
+                        #:head-color "purple"
+                        #:height 100) 
+
+(running-stickman-icon 1)
+(running-stickman-icon .3)
+                                     
+(for/list([t (in-range 0 1 1/12)])
+(running-stickman-icon t  
+                       #:body-color "blue"
+                       #:arm-color "yellow"
+                       #:head-color "blue"
+                       #:height 45))
+
+
 * output from your code demonstrating what it produced
+
+
+
 * any diagrams or figures explaining your work 
  
 The narrative itself should be no longer than 350 words. Yes, you can add more files and link or refer to them. This is github, handling files is awesome and easy!
