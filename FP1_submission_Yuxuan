@@ -1,1 +1,61 @@
+# Final Project Assignment 1: Exploration (FP1) 
+DUE March 25, 2015 Wednesday (2015-03-25)
 
+Full assignment specfication is [on Piazza.][piazza]
+
+Write your report right in this file. Instructions are below. You can delete them if you like, or just leave them at the bottom.
+You are allowed to change/delete anything in this file to make it into your report. It will be public, FYI.
+
+This file is formatted with the [**markdown** language][markdown], so take a glance at how that works.
+
+This file IS your report for the assignment, including code and your story.
+
+Code is super easy in markdown, which you can easily do inline `(require net/url)` or do in whole blocks:
+```
+#lang racket
+
+(require net/url)
+
+(define myurl (string->url "http://www.cs.uml.edu/"))
+(define myport (get-pure-port myurl))
+(display-pure-port myport)
+```
+
+### My Library: (measures-master)
+Write what you did!
+Remember that this report must include:
+ 
+* a narrative of what you did
+The package I use is a kind of converter, which can convert the units like temperatures,speed, and so on. And the package also includes measurer, which can measure the units in science, for example, we can use it in chemistry, physics, mathmatics and other subjects.
+
+* the code that you wrote
+(require measures-master)
+
+(require net/url)
+
+(define myurl (string->url "http://www.cs.uml.edu/"))
+(define myport (get-pure-port myurl))
+(display-pure-port myport)
+
+(define my-speed (m* 50.0 mile (m/ hour)))
+
+(measure->value my-speed)                 
+
+(measure->value (convert my-speed '(km (h -1))))
+
+* output from your code demonstrating what it produced
+
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>302 Found</title>
+</head><body>
+<h1>Found</h1>
+<p>The document has moved <a href="http://www.uml.edu/Sciences/computer-science/default.aspx">here</a>.</p>
+<hr>
+<address>Apache/2.2.3 (CentOS) Server at www.cs.uml.edu Port 80</address>
+</body></html>
+'(22.352 m (s -1))
+'(80.46719999999999 km (h -1))
+
+> * any diagrams or figures explaining your work 
+-NONE
