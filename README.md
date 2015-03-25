@@ -1,27 +1,8 @@
 # Final Project Assignment 1: Exploration (FP1) 
 DUE March/25/2005
 
-Full assignment specfication is [on Piazza.][piazza]
+### My Libraries: racket/gui, rsound and ffi/vector
 
-Write your report right in this file. Instructions are below. You can delete them if you like, or just leave them at the bottom.
-You are allowed to change/delete anything in this file to make it into your report. It will be public, FYI.
-
-This file is formatted with the [**markdown** language][markdown], so take a glance at how that works.
-
-This file IS your report for the assignment, including code and your story.
-
-Code is super easy in markdown, which you can easily do inline `(require net/url)` or do in whole blocks:
-```
-#lang racket
-
-(require net/url)
-
-(define myurl (string->url "http://www.cs.uml.edu/"))
-(define myport (get-pure-port myurl))
-(display-pure-port myport)
-```
-
-### My Library: (library name here)
 Write what you did!
 Remember that this report must include:
  
