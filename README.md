@@ -75,10 +75,6 @@ In the next library, I would like to look into one of the graphical libraries an
 ```
 
 
-### How to Do and Submit this assignment
-
-
-
 
 <!-- Links -->
 [choice]: http://docs.racket-lang.org/gui/index.html
