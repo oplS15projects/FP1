@@ -1,6 +1,8 @@
 # Final Project Assignment 1: Exploration (FP1)
 DUE March/25/2005
 
+Student: Kevin Wacome
+
 ### My Libraries: racket/gui, rsound, portaudio and ffi/vector
 
 I like music and I play guitar, poorly, as a hobby. I would like my final project to involve the manipulation of sound. The ffi/vector, rsound and portaudio racket libraries contain the necessary procedures and data types to generate sound. I am not very well versed in how sound is represented digitally. I just copied the racket documentation for generating a basic sine wave and extended the code. I intend to research this later so I have a better understanding of the inner workings.
