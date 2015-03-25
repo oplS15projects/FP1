@@ -26,11 +26,27 @@ Next, I extended this example by giving plot a list of renderers (here, only two
 (plot (list (area-histogram logifun (linear-seq -6 6 12))
             (function logifun -6 6 #:label "Area under y = L(x)")))
 ```
-Which yields the following plot:
+Which yields the following plot:  
 ![Histogram Output](http://i.imgur.com/1gBHG5e.png)
 
-The histogram renderer is of particular value, as it could be used in conjunction with other libraries, a sound-related one for example, to provide instantaneous or perhaps real-time visualization of data attributes such as frequency distribution in the case of audio.
+The histogram renderer is of particular value, as it could be used in conjunction with other libraries, a sound-related one for example, to provide instantaneous or perhaps real-time visualization of data attributes like frequency distribution in the case of audio.
 
+Before moving on to the 3-dimensional plotting capabilities of the plot library, I decided to make a parametric Lissajous figure, as follows:
+```
+(plot (parametric (lambda (t) (vector (sin (* 4 t)) (cos (* 3 t)))) 0 (* 2 pi)))
+```
+![Lissajous Figure]()  
+
+Finally, I wanted to check out the surface renderer, and made the following surface (a bivariate Gaussian distribution):
+```
+(plot3d (surface3d (lambda (x y) (expt 3
+                                       (- (+ (/ (* x x) 2)
+                                             (/ (* y y) 2)))))
+                   -3 3 -3 3))
+```
+![Bivariate Gaussian Surface]()  
+
+<!--
 ### My Library: (library name here)
 Write what you did!
 Remember that this report must include:
@@ -52,7 +68,7 @@ Ask questions publicly in the Piazza group.
 1. Modify the README.md file and [**commit**][ref-commit] changes to complete your solution.
 1. [**Push**][ref-push]/sync the changes up to your GitHub (skip this if you didn't clone)
 1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
+-->
 <!-- Links -->
 [piazza]: https://piazza.com/class/i55is8xqqwhmr?cid=411
 [markdown]: https://help.github.com/articles/markdown-basics/
