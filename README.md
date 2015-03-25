@@ -7,6 +7,8 @@
 
 Since it is possible that my teams project is a game of some kind, I wanted to explore [Racket's][1] ability to display and overlap images, as well as update the images upon user events (i.e. mouse clicks).  The [Racket Graphical Interface Toolkit][2] seemed a likely package, so I tried it out.
 
+My program loads and displays an image of a chessboard, and then loads and displays images of chess pieces over that.  By clicking on an occupied square and then on a non-occupied square, the user can make moves.
+
 I also created a game-stye menu.  However, the only user event I implemented for that is the "Cancel" button.
 *Note*: Since the purpose of this assignment is to explore a graphics library, I did not spend
 an abundance of time on the actual game logic; hence the validity of certain moves is dubious.
