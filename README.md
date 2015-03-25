@@ -210,7 +210,7 @@ redrawing...
 ```
 
 *(note change of black rook's position)*
-[ScreenShot2](https://github.com/DeepBlue14/Racket-Chess/blob/master/doc/racketChess2.png)
+![ScreenShot2](https://github.com/DeepBlue14/Racket-Chess/blob/master/doc/racketChess2.png)
 
 
 
