@@ -1,35 +1,45 @@
-# Final Project Assignment 1: Exploration (FP1) 
-DUE March 25, 2015 Wednesday (2015-03-25)
+# Final Project Assignment 1: Exploration (FP1)
 
-Full assignment specfication is [on Piazza.][piazza]
+### My Library: plot (and, incidentally, math)
 
-Write your report right in this file. Instructions are below. You can delete them if you like, or just leave them at the bottom.
-You are allowed to change/delete anything in this file to make it into your report. It will be public, FYI.
+I was particularly interested in the different renderers offered by the plot library, so I decided to test drive a few of them. My simple test code follows:
 
-This file is formatted with the [**markdown** language][markdown], so take a glance at how that works.
-
-This file IS your report for the assignment, including code and your story.
-
-Code is super easy in markdown, which you can easily do inline `(require net/url)` or do in whole blocks:
 ```
 #lang racket
 
-(require net/url)
+(require plot)
+(require math/base)
+(require (only-in plot/utils linear-seq))
 
-(define myurl (string->url "http://www.cs.uml.edu/"))
-(define myport (get-pure-port myurl))
-(display-pure-port myport)
+(define (logifun x)
+  (/ 1 (+ 1 (expt euler.0 (- x)))))
+
+(plot (function logifun (- 6) 6 #:label "y = L(x)"))
 ```
+*Note: Also included are the basic math library for Euler's number, as well as the linear-seq sampling utility to help with the histogram.*
+
+First, I tried the simple real function plot renderer, which simply plots a supplied function over a supplied range of inputs. I handed it the standard logistic curve, with the following results:  
+![Logistic Curve Output](http://i.imgur.com/EQPywgg.png)  
+
+Next, I extended this example by giving plot a list of renderers (here, only two) to show the curve as well as an approximation of the area under it:
+```
+(plot (list (area-histogram logifun (linear-seq -6 6 12))
+            (function logifun -6 6 #:label "Area under y = L(x)")))
+```
+Which yields the following plot:
+![Histogram Output](http://i.imgur.com/1gBHG5e.png)
+
+The histogram renderer is of particular value, as it could be used in conjunction with other libraries, a sound-related one for example, to provide instantaneous or perhaps real-time analysis of data attributes such as frequency distribution in the case of audio.
 
 ### My Library: (library name here)
 Write what you did!
 Remember that this report must include:
- 
+
 * a narrative of what you did
 * the code that you wrote
 * output from your code demonstrating what it produced
-* any diagrams or figures explaining your work 
- 
+* any diagrams or figures explaining your work
+
 The narrative itself should be no longer than 350 words. Yes, you can add more files and link or refer to them. This is github, handling files is awesome and easy!
 
 Ask questions publicly in the Piazza group.
