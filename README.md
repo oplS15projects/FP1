@@ -3,14 +3,14 @@ DUE March 25, 2015 Wednesday (2015-03-25)
 
 Full assignment specfication is [on Piazza.][piazza]
 
-Write your report right in this file. Instructions are below. You can delete them if you like, or just leave them at the bottom.
-You are allowed to change/delete anything in this file to make it into your report. It will be public, FYI.
+It is my first work on github
+And the first problem I met is how to deal with markdown language。
 
-This file is formatted with the [**markdown** language][markdown], so take a glance at how that works.
+This file is formatted with the [**markdown** language][markdown].
 
-This file IS your report for the assignment, including code and your story.
+This file IS my report for the assignment, including code and my story.
 
-Code is super easy in markdown, which you can easily do inline `(require net/url)` or do in whole blocks:
+Code is super easy in markdown, which I can easily do inline `(require web-server/servlet)` or do in whole blocks:
 ```
 #lang racket
 
