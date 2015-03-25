@@ -14,14 +14,15 @@ Code is super easy in markdown, which you can easily do inline `(require net/url
 ```
 #lang racket
 
-(require net/url)
+(require games/cards)
 
-(define myurl (string->url "http://www.cs.uml.edu/"))
-(define myport (get-pure-port myurl))
-(display-pure-port myport)
+(define table (make-table "Cards" 6 6))
+
+(send table show #t)
+
 ```
 
-### My Library: (library name here)
+### My Library: (Virtual Playing Cards Library)
 Write what you did!
 Remember that this report must include:
  
