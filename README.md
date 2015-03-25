@@ -8,6 +8,7 @@ Remember that this report must include:
 * a narrative of what you did
 * the code that you wrote
 
+```
 #lang racket
 (require images/icons/stickman)
 
@@ -32,10 +33,12 @@ Remember that this report must include:
                        #:arm-color "yellow"
                        #:head-color "blue"
                        #:height 45))
-
+```
 
 * output from your code demonstrating what it produced
+```
 
+```
 
 
 * any diagrams or figures explaining your work 
