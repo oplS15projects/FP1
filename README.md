@@ -138,4 +138,7 @@ My next plan for the project is to store these sequences of notes and durations 
 
 ```
 
+###Program Output
 
+A recording of the output can be found at the following link:
+https://soundcloud.com/dave-lordan/rsound-starwars
