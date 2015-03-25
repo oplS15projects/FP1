@@ -14,4 +14,5 @@ and the code I wrote was:
                             
 '(Camelot () (King_Arthur () (person ((gender "Male"))) (duty ((Occupation "King Of Camelot")))))                        
 ```                            
-As you can see it returns a list with a similar structure to the xml file.
+
+
