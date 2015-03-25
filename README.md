@@ -49,8 +49,13 @@ After this, I started to dive deeper into the tutorial and was able to alter the
 (send frame show #t)
 ```
 
-The narrative itself should be no longer than 350 words. Yes, you can add more files and link or refer to them. This is github, handling files is awesome and easy!
-
+Included with this README file will be a screenshot of the final window that I was able to create using this library.
+In terms of output from the interperter, all that was outputted when the code was run was:
+  ```
+  (object:button% ...)
+  (object:button% ...)
+  (object:button% ...)
+   ```
 ### How to Do and Submit this assignment
 
 1. To start, [**fork** this repository][forking].
