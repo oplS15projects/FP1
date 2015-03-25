@@ -1,53 +1,73 @@
 # Final Project Assignment 1: Exploration (FP1) 
-DUE March 25, 2015 Wednesday (2015-03-25)
 
-Full assignment specfication is [on Piazza.][piazza]
+### My Library: images/flomap
 
-Write your report right in this file. Instructions are below. You can delete them if you like, or just leave them at the bottom.
-You are allowed to change/delete anything in this file to make it into your report. It will be public, FYI.
+For this exploration, I used the images/flomap library to make some image manipulation procedures.
+I first created a simple image for demonstration, denoted as `fm`. I then created a procedure to alter saturation (either increase or decrease), and made procedures to enhance or desaturate specific colors (red, blue, and green). It could also be possible to create procedures for other colors based off of the procedures I already created. 
 
-This file is formatted with the [**markdown** language][markdown], so take a glance at how that works.
-
-This file IS your report for the assignment, including code and your story.
-
-Code is super easy in markdown, which you can easily do inline `(require net/url)` or do in whole blocks:
+The code I wrote is as follows:
 ```
 #lang racket
 
-(require net/url)
+(require images/flomap
+         racket/draw)
 
-(define myurl (string->url "http://www.cs.uml.edu/"))
-(define myport (get-pure-port myurl))
-(display-pure-port myport)
+;;http://docs.racket-lang.org/images/index.html
+;;http://docs.racket-lang.org/images/flomap_title.html
+
+(define fm
+  (draw-flomap
+   (lambda (fm-dc)
+     (send fm-dc set-alpha 0)
+     (send fm-dc set-background "black")
+     (send fm-dc clear)
+     (send fm-dc set-alpha 1/3)
+     (send fm-dc translate 2 2)
+     (send fm-dc set-brush "red" 'solid)
+     (send fm-dc draw-ellipse 0 0 192 192)
+     (send fm-dc set-brush "green" 'solid)
+     (send fm-dc draw-ellipse 64 0 192 192)
+     (send fm-dc set-brush "blue" 'solid)
+     (send fm-dc draw-ellipse 32 44 192 192))
+   260 240))
+     
+
+(define (saturation fm sat)
+  (define-values (x y) (flomap-size fm))
+  (define fmsat (build-flomap 1 x y (lambda (k x y) sat)))
+  (fm* fm fmsat))
+
+(define (get-red fm)
+  (fm* fm (flomap-ref-component fm 1)))
+  
+(define (enhance-red fm k)
+  (define fmred (saturation (get-red fm) k))
+  (fm+ fm fmred))
+
+(define (get-green fm)
+  (fm* fm (flomap-ref-component fm 2)))
+  
+(define (enhance-green fm k)
+  (define fmgreen (saturation (get-green fm) k))
+  (fm+ fm fmgreen))
+
+(define (get-blue fm)
+  (fm* fm (flomap-ref-component fm 3)))
+  
+(define (enhance-blue fm k)
+  (define fmblue (saturation (get-blue fm) k))
+  (fm+ fm fmblue))
 ```
-
-### My Library: (library name here)
-Write what you did!
-Remember that this report must include:
- 
-* a narrative of what you did
-* the code that you wrote
-* output from your code demonstrating what it produced
-* any diagrams or figures explaining your work 
- 
-The narrative itself should be no longer than 350 words. Yes, you can add more files and link or refer to them. This is github, handling files is awesome and easy!
-
-Ask questions publicly in the Piazza group.
-
-### How to Do and Submit this assignment
-
-1. To start, [**fork** this repository][forking].
-1. You might want to [**Clone**][ref-clone] this repository to your computer
-  2. (This assignment is just one README.md file, so you can edit it right in github without cloning if you like)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your solution.
-1. [**Push**][ref-push]/sync the changes up to your GitHub (skip this if you didn't clone)
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-<!-- Links -->
-[piazza]: https://piazza.com/class/i55is8xqqwhmr?cid=411
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+The following is `fm`, and the results when `fm` is edited using each of these procedures.
+* `fm`:
+* ![Imgur](http://i.imgur.com/A9YQoTS.png)
+* `saturation`:
+* ![Imgur](http://i.imgur.com/VV7vGLL.png)
+* `desaturation`:
+* ![Imgur](http://i.imgur.com/VYfh4g0.png)
+* `enhance-green`:
+* ![Imgur](http://i.imgur.com/q7AdtN5.png)
+* `enhance-red`:
+* ![Imgur](http://i.imgur.com/ymZ14ve.png)
+* `enhance-blue`:
+* ![Imgur](http://i.imgur.com/swJlEtj.png)
