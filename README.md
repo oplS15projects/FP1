@@ -3,7 +3,7 @@
 
 ####**Narrative**
 
-Since it is possible that my teams project is a game of some kind, I wanted to explore [Racket's][1] ability to display and overlap images, as well as update the images upon user events (i.e. mouse clicks).  The [Racket Drawing Toolkit][2] seemed a likely package, so I tried it out.
+Since it is possible that my teams project is a game of some kind, I wanted to explore [Racket's][1] ability to display and overlap images, as well as update the images upon user events (i.e. mouse clicks).  The [Racket Graphical Interface Toolkit][2] seemed a likely package, so I tried it out.
 
 I also created a game-stye menu.  However, the only user event I implemented for that is the "Cancel" button.
 *Note*: Since the purpose of this assignment is to explore a graphics library, I did not spend
@@ -219,7 +219,7 @@ redrawing...
 
 
 [1]: http://racket-lang.org/
-[2]: http://docs.racket-lang.org/draw/index.html?q=
+[2]: http://docs.racket-lang.org/gui/
 [3]: https://github.com/DeepBlue14/Racket-Chess/blob/master/src/Bitmaps.rkt
 [4]: https://github.com/DeepBlue14/Racket-Chess/blob/master/src/ListGenerator.rkt
 [5]: https://github.com/DeepBlue14/Racket-Chess/blob/master/src/MoveSequence.rkt
