@@ -1,16 +1,5 @@
 # Final Project Assignment 1: Exploration (FP1) 
 DUE March 25, 2015 Wednesday (2015-03-25)
-
-Full assignment specfication is [on Piazza.][piazza]
-
-Write your report right in this file. Instructions are below. You can delete them if you like, or just leave them at the bottom.
-You are allowed to change/delete anything in this file to make it into your report. It will be public, FYI.
-
-This file is formatted with the [**markdown** language][markdown], so take a glance at how that works.
-
-This file IS your report for the assignment, including code and your story.
-
-Code is super easy in markdown, which you can easily do inline `(require net/url)` or do in whole blocks:
 ```
 #lang racket
 
@@ -21,8 +10,41 @@ Code is super easy in markdown, which you can easily do inline `(require net/url
 (display-pure-port myport)
 ```
 
-### My Library: (library name here)
-Write what you did!
+### My Library: (Browser)
+The first thing is inorder for us to use this library is we need this line of code:
+ (require browser)
+Browser library is used for playing with HTML files like viewing and parsing them. There are various aspects that can be done by browser library like:
+
+1. Opening a Web page((open-url url)
+where url is a string, for ex ("http://www.cs.uml.edu")
+
+2. getting a URL
+
+3. getting a title((send a-hyper-text get-title)) which is used for getting a title of a webpage. For instance http://www.cs.uml.edu has a title of Computer Science.
+
+4. We can also set a title of a web page by:(send a-hyper-text set-title str)which takes a string parameter.
+
+5. we can also add, find, delete tags. Tags are the building block of HTML, because web page is built of various tags. In order for us to find a tag we can use:(send a-hyper-text find-tag name/number)
+
+6. add a tag:(send a-hyper-text add-tag name pos) → void?
+  which takes a string and  exact-nonnegative-integer.
+
+7. Hyper link, because with hyper link we can have links to other web sites. we can create hyper links in a web page by:
+ (send a-hyper-text add-link start end url) which takes
+  start : exact-nonnegative-integer
+  end : exact-nonnegative-integer
+  url :  string
+
+8. Reload functionality in scheme by: (send a-hyper-text reload)
+which reloads the page.
+
+9. Remap URL based on post data, (send a-hyper-text post-url	 	url [post-data-bytes])	 
+ It gives more options on remap based on post data.
+
+10. Redirect a user to a different web page we can use this function when redirecting a user(send a-hyper-text remap-url url)    : it takes a string as a parameter.
+
+These are only few features of Browser library in scheme, there are lot of useful methods available to be used. Overall with this assignment I came to understand how to use scheme in the web.
+
 Remember that this report must include:
  
 * a narrative of what you did
