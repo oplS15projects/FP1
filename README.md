@@ -18,7 +18,10 @@ a narrative of what you did
 > (plot (function square (- 10) 10 #:label "square(x)" ) )
 
  ```
- This call to plot provides an x-range of -10 to 10, and a label of the line being graphed. The plot can also be zoomed in on and moved around.
  
+ ![Alt text](Graph1.jpg "Square(x) Plot Window")
+ 
+ This call to plot provides an x-range of -10 to 10, and a label of the line being graphed. The plot can also be zoomed in on and moved around.
+ Did I change?
  
 
