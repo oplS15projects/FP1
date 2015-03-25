@@ -3,47 +3,44 @@ DUE March 25, 2015 Wednesday (2015-03-25)
 
 Full assignment specfication is [on Piazza.][piazza]
 
-Write your report right in this file. Instructions are below. You can delete them if you like, or just leave them at the bottom.
-You are allowed to change/delete anything in this file to make it into your report. It will be public, FYI.
+It is my first work on github
+And the first problem I met is how to deal with markdown language。
 
-This file is formatted with the [**markdown** language][markdown], so take a glance at how that works.
+This file is formatted with the [**markdown** language][markdown].
 
-This file IS your report for the assignment, including code and your story.
+This file IS my report for the assignment, including code and my story.
 
-Code is super easy in markdown, which you can easily do inline `(require net/url)` or do in whole blocks:
+Code is super easy in markdown, which I can easily do inline `(require web-server/servlet)` or do in whole blocks:
 ```
 #lang racket
 
-(require net/url)
+(require web-server/servlet)
+(require web-server/servlet-env)
 
-(define myurl (string->url "http://www.cs.uml.edu/"))
-(define myport (get-pure-port myurl))
-(display-pure-port myport)
+ (define (my-web request)
+    (response/xexpr
+     '(html (head (title "My OPL Website"))
+            (body
+              (h1 "This is a Title")
+              (p "This is a paragraph") ) )
+  ))
+ 
+(serve/servlet my-web)
 ```
 
-### My Library: (library name here)
-Write what you did!
-Remember that this report must include:
- 
-* a narrative of what you did
-* the code that you wrote
-* output from your code demonstrating what it produced
-* any diagrams or figures explaining your work 
- 
-The narrative itself should be no longer than 350 words. Yes, you can add more files and link or refer to them. This is github, handling files is awesome and easy!
+### My Library: (Web servlets)
 
-Ask questions publicly in the Piazza group.
 
-### How to Do and Submit this assignment
+In this assignment, professor asks us to test one lib in racket which we are interested in. It is really cost my time to pick
+one. Finally, I choose the library "web-server/web-servlet-env" to make a simple website. Because I just learn how it works 
+by HTML file. I found that is as easy as in racket. we just need do inline (require web-server/servlet 
+web-server/servlet-env). After that we need use X-expressions (xexpr) to create some lists in my website. Then, it become 
+like [MyWeb][mphoto].
 
-1. To start, [**fork** this repository][forking].
-1. You might want to [**Clone**][ref-clone] this repository to your computer
-  2. (This assignment is just one README.md file, so you can edit it right in github without cloning if you like)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your solution.
-1. [**Push**][ref-push]/sync the changes up to your GitHub (skip this if you didn't clone)
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
+
 
 <!-- Links -->
+[mphoto]: http://i.imgur.com/hDIPdu8.jpg
 [piazza]: https://piazza.com/class/i55is8xqqwhmr?cid=411
 [markdown]: https://help.github.com/articles/markdown-basics/
 [forking]: https://guides.github.com/activities/forking/
