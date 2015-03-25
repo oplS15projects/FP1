@@ -2,13 +2,7 @@
 DUE March 25, 2015 Wednesday (2015-03-25)
 
 ### My Library: racket/gui
-Remember that this report must include:
- 
-* a narrative of what you did
-* the code that you wrote
-* output from your code demonstrating what it produced
-* any diagrams or figures explaining your work 
- 
+
 I decided to go with the basic GUI library that is included in racket. I figure that no matter what kind of program I decide to do, having a basic GUI will be important to the program. First I started by just copying and pasting the basic code from the tutorial. This looked something like this:
 ```
 (define frame (new frame% [label "Example"]))
@@ -49,7 +43,10 @@ After this, I started to dive deeper into the tutorial and was able to alter the
 (send frame show #t)
 ```
 
-Included with this README file will be a screenshot of the final window that I was able to create using this library.
+This is the window that was created by the code above:
+
+![alt text](https://github.com/stuarttomkins/FP1/blob/master/window.png "Window Screenshot")
+
 In terms of output from the interperter, all that was outputted when the code was run was:
   ```
   (object:button% ...)
