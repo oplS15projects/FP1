@@ -30,8 +30,19 @@ I next decided to see how I could add a button on to frame/window because whats 
 ####Basic Button Code:
 
 ```
+#lang racket
 
+(require racket/gui/base)
 
+(define frame (new frame%
+                   [label "Canvas Control Example"]
+                   [width 400]
+                   [height 200]))
+
+(new button% [parent frame]
+             [label "Button"]
+             [callback (lambda (button event) (sleep 5))])
+(send frame show #t)
 ```
 
 The output of the basic button code can be seen below in the screen shot.
@@ -43,7 +54,23 @@ After I was able to add the button in I next looked at adding a canvas so that I
 ####Basic Canvas Code:
 
 ```
+#lang racket
 
+(require racket/gui/base)
+
+(define frame (new frame%
+                   [label "Canvas Control Example"]
+                   [width 400]
+                   [height 200]))
+
+(define canvas (new canvas% [parent frame]
+             [paint-callback
+              (lambda (canvas dc)
+                (send dc set-scale 3 3)
+                (send dc set-text-foreground "blue")
+                (send dc draw-text "Testing!" 15 0))]))
+
+(send frame show #t)
 ```
 
 The output of the basic canvas code can be seen in the screen shot below.
@@ -55,7 +82,37 @@ I now decided that since I have these parts on the screen lets try to make them 
 ####Basic Button Canvas Control Code:
 
 ```
+#lang racket
 
+(require racket/gui/base)
+
+(define frame (new frame%
+                   [label "Canvas Control Example"]
+                   [width 400]
+                   [height 200]))
+
+(define canvas (new canvas% [parent frame]
+             [paint-callback
+              (lambda (canvas dc)
+                (send dc set-scale 3 3)
+                (send dc set-text-foreground "blue")
+                (send dc draw-text "Click a button!" 15 0))]))
+
+(new button% [parent frame]
+             [label "Start"]
+             [callback (lambda (button event) 
+                         (send (send canvas get-dc) clear)
+                         (send (send canvas get-dc) set-text-foreground "green")
+                         (send (send canvas get-dc) draw-text "Starting" 38 0))])
+
+(new button% [parent frame]
+             [label "Stop"]
+             [callback (lambda (button event) 
+                         (send (send canvas get-dc) clear)
+                         (send (send canvas get-dc) set-text-foreground "red")
+                         (send (send canvas get-dc) draw-text "Stopping" 38 0))])
+
+(send frame show #t)
 ```
 
 The output of this code can be seen in the following screen shot.
