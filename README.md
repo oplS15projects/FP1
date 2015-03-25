@@ -15,7 +15,10 @@ and the code I wrote was:
 
 (define (read t)(xml->xexpr (document-element
                (read-xml (t)))))
-
+               
+```
+Evaluating the procedure gave me the following:
+```scheme
  (read test)                           
 '(Camelot () (King_Arthur () (person ((gender "Male"))) (duty ((Occupation "King Of Camelot")))))                        
 ```                            
@@ -57,5 +60,10 @@ For example, I quickly made a flatten procedure to turn my tree into a simple li
           ((not (pair? x)) (list x))
           (else (append (flatten (car x))
                         (flatten (cdr x))))))
- ```                       
+ ```            
+ Output:
+ ```
+ (remove* "\r\n" (flatten (read test)))
+ '(Camelot King_Arthur person gender "Male" duty Occupation "King Of Camelot")
+ ```
 
