@@ -1,5 +1,28 @@
+# Eugene Stanley
+# eugene.stanley@gmail.com
+
 # Final Project Assignment 1: Exploration (FP1) 
 DUE March 25, 2015 Wednesday (2015-03-25)
+
+### My Library: racket/gui/base
+
+I chose the Racket Graphical Interface Toolkit to play around with. I started by
+creating a window, then adding a button to control some text within the window. I
+expanded on this first by then making the button toggle the text on and off like
+a light switch. I added another control button and switch, so each text could be
+manipulated independently. I experimented with different field types, such as radio
+buttons, text entry fields, comb-fields, and check boxes. I set up a canvas and 
+learned to handle mouse and keyboard events within the canvas. I learned how to 
+draw and paint text on a canvas. I created a dialog, and learned how frames are 
+used to layout controls. I followed the instructions in the online documentation
+to create a simple text editor with drop down menus to support cut and paste 
+features.
+
+A screenshot of three of my frames:
+
+The inline code:
+
+************************************************************************************************************
 
 Full assignment specfication is [on Piazza.][piazza]
 
