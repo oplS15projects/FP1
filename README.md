@@ -1,33 +1,47 @@
 # Final Project Assignment 1: Exploration (FP1) 
 DUE March 25, 2015 Wednesday (2015-03-25)
 
-Full assignment specfication is [on Piazza.][piazza]
+### My Library: Stickman Icons
 
-Write your report right in this file. Instructions are below. You can delete them if you like, or just leave them at the bottom.
-You are allowed to change/delete anything in this file to make it into your report. It will be public, FYI.
+* a narrative of what you did
 
-This file is formatted with the [**markdown** language][markdown], so take a glance at how that works.
+I worked with the Stickman Icons library. I first created the original standing stickman icon that is used in Racket. Next, I created a two more standing stickman icon, changing the colors and height of each. I then created two running stickman icons. Each of the running stickman icons shows a different frames from when it is running. Lastly, I changed the running stickman icons' colors and height and created a list showing all the 12 different frames of it running.
 
-This file IS your report for the assignment, including code and your story.
+* the code that you wrote
 
-Code is super easy in markdown, which you can easily do inline `(require net/url)` or do in whole blocks:
 ```
 #lang racket
+(require images/icons/stickman)
 
-(require net/url)
+(standing-stickman-icon)
 
-(define myurl (string->url "http://www.cs.uml.edu/"))
-(define myport (get-pure-port myurl))
-(display-pure-port myport)
+(standing-stickman-icon #:body-color "blue"
+                        #:arm-color "red"
+                        #:head-color "white"
+                        #:height 50)
+
+(standing-stickman-icon #:body-color "pink"
+                        #:arm-color "green"
+                        #:head-color "purple"
+                        #:height 100) 
+
+(running-stickman-icon 1)
+(running-stickman-icon .3)
+                                     
+(for/list([t (in-range 0 1 1/12)])
+(running-stickman-icon t  
+                       #:body-color "blue"
+                       #:arm-color "yellow"
+                       #:head-color "blue"
+                       #:height 45))
 ```
 
-### My Library: (library name here)
-Write what you did!
-Remember that this report must include:
- 
-* a narrative of what you did
-* the code that you wrote
 * output from your code demonstrating what it produced
+
+
+[A screenshot of my output](https://github.com/rthok/image/issues/1)
+
+
 * any diagrams or figures explaining your work 
  
 The narrative itself should be no longer than 350 words. Yes, you can add more files and link or refer to them. This is github, handling files is awesome and easy!
