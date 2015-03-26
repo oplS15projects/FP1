@@ -20,3 +20,4 @@ Code:
 (define flip-button (make-region 300 0 100 100 "FLIP" flip))
 (send tester add-region flip-button)
 ```
+![](https://cloud.githubusercontent.com/assets/11621186/6838276/ceddf284-d32c-11e4-96b7-a48e3f2d56d2.png)
