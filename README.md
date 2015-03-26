@@ -94,6 +94,7 @@ Code:
 ```
 
 Output:
+
 It has a window. It prints the score in the middle of the frame. It has 2 buttons, Click Counter and Exit.
 When you click on "Click Here", score + 1.
 No time limit, have fun.
