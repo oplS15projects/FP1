@@ -13,6 +13,7 @@ The player character is a blue square, controlled by the arrow keys. You can col
 
 
 Screenshots:
+
 ![](/images/firstpart1.png)
 
 ![](/images/firstpart2.png)
