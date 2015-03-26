@@ -1,53 +1,77 @@
 # Final Project Assignment 1: Exploration (FP1) 
 DUE March 25, 2015 Wednesday (2015-03-25)
 
-Full assignment specfication is [on Piazza.][piazza]
-
-Write your report right in this file. Instructions are below. You can delete them if you like, or just leave them at the bottom.
-You are allowed to change/delete anything in this file to make it into your report. It will be public, FYI.
-
-This file is formatted with the [**markdown** language][markdown], so take a glance at how that works.
-
-This file IS your report for the assignment, including code and your story.
-
-Code is super easy in markdown, which you can easily do inline `(require net/url)` or do in whole blocks:
+### Program Code:
 ```
 #lang racket
+#lang racket/gui
+(require racket/gui/base)
 
-(require net/url)
+(define vis_frame (new frame% [label "Data Visualization Tool"]))
+(define edit_frame (new frame% [label "Data Editor"] [width 300] [height 300]))
 
-(define myurl (string->url "http://www.cs.uml.edu/"))
-(define myport (get-pure-port myurl))
-(display-pure-port myport)
+(define mb (new menu-bar% [parent vis_frame]))
+
+(define m_file (new menu% [label "File"] [parent mb]))
+(define m_help (new menu% [label "Help"] [parent mb]))
+
+(new menu-item%
+       [parent m_help]
+       [label "About"]
+       [callback (lambda (b e) (message-box "About" "This is an exploration!" vis_frame))])
+
+(new menu-item%
+       [parent m_help]
+       [label "Contact"]
+       [callback (lambda (b e) (message-box "Contact" "Contact Info: John Smith" vis_frame))])
+
+(new menu-item%
+       [parent m_file]
+       [label "Load"]
+       [callback (lambda (b e)  (send edit_frame show #t))])
+
+(new menu-item%
+       [parent m_file]
+       [label "Save"]
+       [callback (lambda (b e)  (send edit_frame show #f))])
+
+(new menu-item%
+       [parent m_file]
+       [label "Exit"]
+       [callback (lambda (b e)  (send vis_frame show #f))])
+
+(new separator-menu-item% [parent m_file])
+
+(define panel (new horizontal-panel% [parent vis_frame] [alignment '(center center)]))
+
+(new button% [parent panel]
+             [label "Load File"]
+             [callback (lambda (button event)
+                         (send edit_frame show #t))])
+
+(new button% [parent panel]
+             [label "Save File"]
+             [callback (lambda (button event)
+                         (send edit_frame show #f))])
+
+(new button% [parent panel]
+             [label "Exit"]
+             [callback (lambda (button event)
+                         (send vis_frame show #f))])
+
+(define msg (new message% [parent vis_frame]
+                          [label "Open a .rkt file containing a single list named lst"]))
+
+(define edit_msg (new message% [parent edit_frame]
+                          [label "This is the data editing window"]))
+
+(send mb enable #t)
+(send vis_frame show #t)
 ```
 
-### My Library: (library name here)
-Write what you did!
-Remember that this report must include:
- 
-* a narrative of what you did
-* the code that you wrote
-* output from your code demonstrating what it produced
-* any diagrams or figures explaining your work 
- 
-The narrative itself should be no longer than 350 words. Yes, you can add more files and link or refer to them. This is github, handling files is awesome and easy!
+### My Library: Racket GUI Toolkit
+### Narrative:
+The code I wrote creates a two-frame program. The first frame is a simple loader with both a menu bar and a menu panel filled with buttons. This frame would be used to load a file containing data to be visualized and a way to save it when done. The second frame is the actual viewer and editor where a data structure wouled be represented graphically. A user would be able to modify the data structure and its contents in this window and then save the changes which would generate a new list in Racket.
 
-Ask questions publicly in the Piazza group.
-
-### How to Do and Submit this assignment
-
-1. To start, [**fork** this repository][forking].
-1. You might want to [**Clone**][ref-clone] this repository to your computer
-  2. (This assignment is just one README.md file, so you can edit it right in github without cloning if you like)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your solution.
-1. [**Push**][ref-push]/sync the changes up to your GitHub (skip this if you didn't clone)
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-<!-- Links -->
-[piazza]: https://piazza.com/class/i55is8xqqwhmr?cid=411
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+### Program Output/Images:
+https://drive.google.com/folderview?id=0B7j4TU2jQ5KxflNySlI4ODhaSnd1ajd3QWFSaTB3ZmpWeWFzbkdqSWxmenJ2SzY3Y1VkeG8&usp=sharing
