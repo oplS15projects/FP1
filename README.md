@@ -37,7 +37,8 @@ I worked with the Stickman Icons library. I first created the original standing 
 ```
 
 * output from your code demonstrating what it produced
-* 
+
+
 [A screenshot of my output](https://github.com/rthok/image/issues/1)
 
 
