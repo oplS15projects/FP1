@@ -39,3 +39,5 @@ For my library I chose to use the Web Server library as I plan on making a web a
 ```
 
 I also passed variables to the views as that is something that we will need to do when we develop our statistics app. The output of the program can be viewed in output.html, it's too large to include here. All CSS is included, but I left out the Javascript and didn't use page animation, that'll be implemented later.
+
+When working on the final project, that form in the center will need to do something. At it's current state it's inactive and simply a placeholder.
