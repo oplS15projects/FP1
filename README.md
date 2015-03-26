@@ -1,53 +1,51 @@
 # Final Project Assignment 1: Exploration (FP1) 
 DUE March 25, 2015 Wednesday (2015-03-25)
 
-Full assignment specfication is [on Piazza.][piazza]
-
-Write your report right in this file. Instructions are below. You can delete them if you like, or just leave them at the bottom.
-You are allowed to change/delete anything in this file to make it into your report. It will be public, FYI.
-
-This file is formatted with the [**markdown** language][markdown], so take a glance at how that works.
-
-This file IS your report for the assignment, including code and your story.
-
-Code is super easy in markdown, which you can easily do inline `(require net/url)` or do in whole blocks:
-```
-#lang racket
-
-(require net/url)
-
-(define myurl (string->url "http://www.cs.uml.edu/"))
-(define myport (get-pure-port myurl))
-(display-pure-port myport)
-```
-
 ### My Library: (library name here)
 Write what you did!
 Remember that this report must include:
  
 * a narrative of what you did
+
+A program that reads music notes and outputs music with piano tune.
+
 * the code that you wrote
+
+```
+; these are the libraries I used.
+(require rsound)
+(require rsound/piano-tones) 
+...
+; Music notes are defined as piano tones
+(define F3 (piano-tone 53))
+(define G3 (piano-tone 55))
+...
+; A procedure that takes an arbituary amount of rsounds and returns an rsound that plays them simultaneously.
+(define (group-rsound-args head . tail)
+  (rs-overlay* (append (list head) tail)))
+...
+; A procedure that takes a list of rsound and assemble them to an rsound that plays in a fixed interval.
+(define (group-rsound-with-delay rsound-lst time-delay)
+  (assemble ; (assemble (list (list r-sound timestamp) (list ...))
+   (map 
+   (lambda (x y) (list x y))
+   rsound-lst 
+   (map (lambda (z) (* z time-delay)) (range (length rsound-lst))))))
+...
+; One of the rsound creation. The list contains the music notes, and the last number is the time interval.
+(define right-hand (group-rsound-with-delay (list E G3 E G3 F G3 G G3 
+                                G A3 F A3 E G3 D F3 
+                                C E3 C E3 D G3 E G3 
+                                D F3 C F3 C) 10000))
+...
+```
+
 * output from your code demonstrating what it produced
+* 
+* "played sound"
+* last part of "Ode to joy" is played through the speakers.
+
+
 * any diagrams or figures explaining your work 
- 
-The narrative itself should be no longer than 350 words. Yes, you can add more files and link or refer to them. This is github, handling files is awesome and easy!
+* None
 
-Ask questions publicly in the Piazza group.
-
-### How to Do and Submit this assignment
-
-1. To start, [**fork** this repository][forking].
-1. You might want to [**Clone**][ref-clone] this repository to your computer
-  2. (This assignment is just one README.md file, so you can edit it right in github without cloning if you like)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your solution.
-1. [**Push**][ref-push]/sync the changes up to your GitHub (skip this if you didn't clone)
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-<!-- Links -->
-[piazza]: https://piazza.com/class/i55is8xqqwhmr?cid=411
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
