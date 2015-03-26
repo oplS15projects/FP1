@@ -1,55 +1,50 @@
 # Final Project Assignment 1: Exploration (FP1) 
 DUE March 25, 2015 Wednesday (2015-03-25)
 
-Full assignment specfication is [on Piazza.][piazza]
+### My Library: Web-Server
 
-Write your report right in this file. Instructions are below. You can delete them if you like, or just leave them at the bottom.
-You are allowed to change/delete anything in this file to make it into your report. It will be public, FYI.
+#### Narrative
 
-This file is formatted with the [**markdown** language][markdown], so take a glance at how that works.
+I worked with the web-server library. I’m familiar with web, but I’m not familiar with using Scheme libraries to do web, so I thought that'd be a challenge. And yes, yes it was. It was challenging because I thought the API documentation was very poor. My code might not seem like much, but it actually took me an hour to figure out how to load a CSS file. The section on adding a CSS file was not clear at all. So much so that I went digging for an example. And the example didn’t really help either. I really just experimented and used the console as much as possible to isolate the problem. My wrongdoings were very subtle, and that didn't help. I felt like I was back at the beginning of the course again. I will have to re-wrap my head around another part of Scheme.
 
-This file IS your report for the assignment, including code and your story.
+In addition to loading a CSS file, I experimented with inline styles, different types of tags (e.g. h1 and p), and forms. My form right now is just a next button and it redirects to another page. That also took me some time to understand because it wasn't clear to me that "send" statements should have both been in the define. In retrospect that seems silly, but this actually wasn't easy.
 
-Code is super easy in markdown, which you can easily do inline `(require net/url)` or do in whole blocks:
+I really want to do something web related for the project, so it's likely I'll have to bite the bullet and learn to use this library.
+
+#### Code
 ```
 #lang racket
 
-(require net/url)
+(require web-server/servlet
+         web-server/servlet-env)
 
-(define myurl (string->url "http://www.cs.uml.edu/"))
-(define myport (get-pure-port myurl))
-(display-pure-port myport)
+(define (start req)
+  (send/suspend
+   (lambda (k-url)
+     (response/xexpr
+      `(html (head (title "Enter a number")
+                   (link ([rel "stylesheet"] [href "/style.css"])))
+             (body [(style "background-color: #FFC0CB;")]
+                   (h1 "Hello, World!")
+                   (p "I'm writing my first web program in Scheme. Never did I think this day would come.")
+                   (p "Hit next to continue.")
+                   (form ([action, k-url])
+                         (input ([type "submit"] [value "Next"]))))))))
+  (send/finish
+   (response/xexpr
+    `(html (head (title "Test Program All Done")
+                 (link ([rel "stylesheet"] [href "/style.css"])))
+           (body [(style "background-color: #ADD8E6;")]
+                 (h1 "So that's it!")
+                 (p "Well, for now..."))))))
+(serve/servlet start
+               #:extra-files-paths
+               (list
+                (build-path "/Users/kaitlyncarcia/Desktop/") "htdocs"))
 ```
 
-### My Library: (library name here)
-Write what you did!
-Remember that this report must include:
-hi
-bye
- 
-* a narrative of what you did
-* the code that you wrote
-* output from your code demonstrating what it produced
-* any diagrams or figures explaining your work 
- 
-The narrative itself should be no longer than 350 words. Yes, you can add more files and link or refer to them. This is github, handling files is awesome and easy!
+#### Output
 
-Ask questions publicly in the Piazza group.
+![screenshot1](http://weblab.cs.uml.edu/~kcarcia/output1.png)
 
-### How to Do and Submit this assignment
-
-1. To start, [**fork** this repository][forking].
-1. You might want to [**Clone**][ref-clone] this repository to your computer
-  2. (This assignment is just one README.md file, so you can edit it right in github without cloning if you like)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your solution.
-1. [**Push**][ref-push]/sync the changes up to your GitHub (skip this if you didn't clone)
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-<!-- Links -->
-[piazza]: https://piazza.com/class/i55is8xqqwhmr?cid=411
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+![screenshot2](http://weblab.cs.uml.edu/~kcarcia/output2.png)
