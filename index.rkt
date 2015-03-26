@@ -1,42 +1,33 @@
 #lang racket
+
 (require 
      web-server/servlet
      web-server/servlet-env
-     web-server/http
-     web-server/dispatchers/dispatch
+     web-server/templates
 )
 
-(define (my-app req)
+
+(define (start req)
      (response/xexpr
      '(html
-
-          (head (meta ((charset "utf-8")))
-               (title "LoL Stats")
-               (link ([rel "stylesheet"]
-                      [type "text/css"]
-                      [href "css/main.css"])
-               )
-          )
-
-          (body 
-               (div ((class "container"))
+          ,(let ([title "League of Stats"]) (include-template "views/header.html"))
+          (div ((class "row") (id "landing"))
+               (div ((class "col-md-4 col-md-offset-4 platform") (style "padding-top: 100px"))
                     (h1 "Summoner Lookup")
-                    (form ([action ,k-url])
+                    (p "Welcome to will they feed, the site that crunches the numbers 
+                             for you, and tells you the likelyhood that your teammate will 
+                              feed! Simply enter their Summoner name below, and be amazed!"
+                       )
+                    (form
                           "Enter a Summoner Name: "
                           (input ([name "name"]))
-                          (input ([type "submit"])))
-               )
-
-               (div ((class "content"))
-               )
+                          (input ([type "submit"]))
+                    )
+                    )
           )
+          ,(let ([brand "Noxus"]) (include-template "views/footer.html"))
      )
      )
 )
 
-(serve/servlet my-app
-     #:servlet-path "/"
-     #:extra-files-paths (list "./htdocs")
-     #:port 8080
-     #:launch-browser? #t
-)
+(serve/servlet start)

@@ -1,0 +1,341 @@
+/* --- Keyframes --- */
+@-webkit-keyframes pulsate {
+    0%   {
+        border: 1px solid rgba(68, 153, 255, 0.5);
+        box-shadow: rgba(68, 153, 255, 1) 0px 0px 5px;
+    }
+    100%   {
+        border: 1px solid rgba(68, 153, 255, 1);
+        box-shadow: rgba(68, 153, 255, 1) 0px 0px 5px;
+    }
+}
+
+@-moz-keyframes pulsate {
+    0%   {
+        border: 1px solid rgba(68, 153, 255, 0.5);
+        box-shadow: rgba(68, 153, 255, 1) 0px 0px 5px;
+    }
+    100%   {
+        border: 1px solid rgba(68, 153, 255, 1);
+        box-shadow: rgba(68, 153, 255, 1) 0px 0px 5px;
+    }
+}
+
+@-o-keyframes pulsate {
+    0%   {
+        border: 1px solid rgba(68, 153, 255, 0.5);
+        box-shadow: rgba(68, 153, 255, 1) 0px 0px 5px;
+    }
+    100%   {
+        border: 1px solid rgba(68, 153, 255, 1);
+        box-shadow: rgba(68, 153, 255, 1) 0px 0px 5px;
+    }
+}
+
+@keyframes pulsate {
+    0%   {
+        border: 1px solid rgba(68, 153, 255, 0.5);
+        box-shadow: rgba(68, 153, 255, 1) 0px 0px 5px;
+    }
+    100%   {
+        border: 1px solid rgba(68, 153, 255, 1);
+        box-shadow: rgba(68, 153, 255, 1) 0px 0px 5px;
+    }
+}
+
+
+/* --- General Styling --- */
+body {
+    background: #000 url(http://dropshock.net/themes/Frostbite/images/background.jpg) no-repeat top center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    margin: 0;
+}
+
+#background {
+    background: transparent url('../images/gridbg_glow.png');
+    background-repeat: repeat;
+    z-index: -1;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-position: center top;
+    -webkit-animation: scalex 2s 0.1s cubic-bezier(0.86, 0, 0.07, 1) backwards;
+    -webkit-animation-play-state: running;
+}
+
+.container {
+    display: none;
+}
+
+.platform {
+    background: radial-gradient(ellipse at center, #000 0%, #111 100%);
+    box-shadow: #000 0px 0px 30px;
+    border: 1px solid rgba(255,255,255, 0.15);
+    color: #DADADA;
+    padding: 20px;
+}
+
+.platform:not(:first-child) {
+    margin-top: 20px;
+}
+
+.platform.horizontal {
+    margin-top: 0;
+}
+
+.platform.hoverable:hover {
+    border-left: 1px solid #4499FF;
+    -webkit-transition: all 0.30s ease-in-out;
+    cursor: pointer;
+}
+
+.platform.hoverable:hover h2 {
+    color: #4499FF;
+    -webkit-transition: all 0.30s ease-in-out;
+}
+
+.platform h1 {
+    font: 40px 'DiamanteEF-Medium';
+    margin: 0;
+    color: #FFF;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.platform h2 {
+    font: 32px 'DiamanteEF-Medium';
+    margin: 0;
+    color: #FFF;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.platform p {
+    font: 13px 'Open Sans', sans-serif;
+    color: #DADADA;
+}
+
+.platform .status {
+    float: right;
+    display: inline-block;
+    font: 13px 'Electrolize', sans-serif;
+    text-transform: uppercase;
+    color: #00FF66;
+}
+
+.platform .status.open      { color: #00FF66; border-bottom: 1px solid rgba(000, 255, 102, 0.5); }
+.platform .status.neutral   { color: #FFFF66; border-bottom: 1px solid rgba(255, 255, 102, 0.5); }
+.platform .status.closed    { color: #FF6666; border-bottom: 1px solid rgba(255, 102, 102, 0.5); }
+
+.welcome h1 {
+    text-align: center;
+}
+
+.welcome p {
+    text-align: justify;
+    margin-top: 10px;
+}
+
+.back-button {
+    margin: 75px auto;
+    cursor: pointer;
+    width: 300px;
+    height: 50px;
+    padding: 15px;
+    text-align: center;
+    background: #111;
+    box-shadow: #000 0px 0px 30px;
+    border: 1px solid rgba(255,255,255, 0.15);
+    color: #DADADA;
+    transition: 1s all;
+}
+
+.back-button:hover {
+    color: #4499FF;
+    border: 1px solid #4499FF;
+    box-shadow: 0 0 20px #4499FF;
+}
+
+/* ------ PLATFORMS ------ */
+
+#learn-platform {
+    display: none;
+}
+
+#learn-platform h2 {
+    display: block;
+    text-align: center;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+#learn-platform p {
+    text-align: justify;
+}
+
+#learn-platform * {
+    transition: 1s all;
+}
+
+.shine {
+    color: #4499FF;
+}
+
+h1.overhead {
+    font: 48px 'DiamanteEF-Medium';
+    text-align: center;
+    margin: 0 0 30px 0;
+    color: #FFF;
+    text-transform: uppercase;
+    text-shadow: 0px 0px 5px #000;
+    border-bottom: 3px solid #FFF;
+}
+
+@-webkit-keyframes fade {
+    0% {
+        text-shadow: 0px 0px 40px #64D9FF;
+        transform: scale(1.3);
+    }
+    50% {
+        text-shadow: 0px 0px 10px #64D9FF;
+        transform: scale(1.1);
+        text-shadow: 0px 0px 10px #64D9FF;
+        transform: scale(1.1);
+    }
+    100% {
+        text-shadow: 0px 0px 1px #64D9FF;
+        transform: scale(1);
+        text-shadow: 0px 0px 1px #64D9FF;
+        transform: scale(1);
+    }
+}
+@-moz-keyframes fade {
+    0% {
+        text-shadow: 0px 0px 40px #64D9FF;
+        transform: scale(1.3);
+    }
+    50% {
+        text-shadow: 0px 0px 10px #64D9FF;
+        transform: scale(1.1);
+        text-shadow: 0px 0px 10px #64D9FF;
+        transform: scale(1.1);
+    }
+    100% {
+        text-shadow: 0px 0px 1px #64D9FF;
+        transform: scale(1);
+        text-shadow: 0px 0px 1px #64D9FF;
+        transform: scale(1);
+    }
+}
+
+
+/* --- Register Platform --- */
+#register-platform {
+    display: none;
+}
+
+/* --- Enlist Platform --- */
+
+#enlist-platform {
+    display: none;
+}
+
+.filter {
+    background: rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+    -webkit-transition: all 0.30s ease-in-out;
+}
+
+.filter:hover {
+    background: transparent;
+}
+
+.filter:hover h2 {
+    color: transparent !important;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.filter:hover p {
+   color: transparent !important;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.filter:hover::after {
+    opacity: 1;
+    color: #FFF;
+    -webkit-touch-callout: initial;
+    -webkit-user-select: initial;
+    -khtml-user-select: initial;
+    -moz-user-select: initial;
+    -ms-user-select: initial;
+    user-select: initial;
+}
+
+.filter:after {
+    content: "Enlist";
+    opacity: 0.8;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    text-align: center;
+    font: 50px 'DiamanteEF-Medium';
+    text-transform: uppercase;
+    text-shadow: 1px 1px 7px rgba(0,0,0,0.7);
+    -webkit-font-smoothing: antialiased;
+    padding: 42px;
+    color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.filter.halo::after {
+    background: url(../images/halo-filter.jpg);
+    background-size: cover;
+}
+
+.filter.lol::after {
+    background: url(../images/lol-filter.jpg);
+    background-size: cover;
+}
+
+.filter.wow::after {
+    background: url(../images/wow-filter.jpg);
+    background-size: cover;
+}
+
+.filter.cs::after {
+    background: url(../images/cs-filter.jpg);
+    background-size: cover;
+}
+
+/* --- Form Styles --- */
+
+.form-control {
+    color: #EEE;
+    background-color: #0b0b0b;
+    border: 1px solid #333;
+    border-radius: 0;
+}
