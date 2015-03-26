@@ -11,6 +11,8 @@ Taking a hint from that problem on the test about colors, I defined make-sprite 
 
 The player character is a blue square, controlled by the arrow keys. You can collect keys, enter doors to go to the next map, and being touched by an enemy kills you.
 
+
+Screenshots:
 ![](/images/firstpart1.png)
 
 ![](/images/firstpart2.png)
@@ -19,7 +21,7 @@ The player character is a blue square, controlled by the arrow keys. You can col
 
 
 
-By the way, I guess I should mention I'm not particularly proud of this code. I used a bunch of conds with no else because I didn't know how else to do it. I also used set! in quite a few places and kind of felt dirty every time I did. I don't know how to avoid using it in 
+By the way, I guess I should mention I'm not particularly proud of this code. I used a bunch of conds with no else because I didn't know how else to do it? I also used set! in quite a few places and kind of felt dirty every time I did. I don't know how to avoid using it in this case.
 
 ```
 #lang racket
