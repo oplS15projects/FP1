@@ -1,53 +1,18 @@
-# Final Project Assignment 1: Exploration (FP1) 
+# Final Project Assignment 1: Exploration (FP1)
 DUE March 25, 2015 Wednesday (2015-03-25)
 
-Full assignment specfication is [on Piazza.][piazza]
+## My Library: SGL (Racket OpenGL Library)
+For this assignment, I decided to use SGL to explore graphics in Racket. SGL is an OpenGL wrapper for Racket that allows
+the user to display 2D and 3D graphics. For the purposes of my assignment, I will only be delving into 2D graphics, because
+I do not know anything about 3D graphics.
 
-Write your report right in this file. Instructions are below. You can delete them if you like, or just leave them at the bottom.
-You are allowed to change/delete anything in this file to make it into your report. It will be public, FYI.
+To begin with, I found the documentation for SGL at [http://docs.racket-lang.org/sgl/index.html](http://docs.racket-lang.org/sgl/index.html),
+but there is no actual documentation of what each procedure does. For this, I had to find the official OpenGL documentation to learn what each
+procedure did, and then find the relevant procedure in the Racket documentation. The official OpenGL documentation is found [here](https://www.opengl.org/sdk/docs/man2/xhtml/).
 
-This file is formatted with the [**markdown** language][markdown], so take a glance at how that works.
+The official documentation is very helpful, but the problem is that I had no basis for how to do something like create a frame to draw in and
+begin drawing and how to update the window. So, I did some Googling and found an example of how to create a simple window and draw a triangle on [RosettaCode](http://rosettacode.org/wiki/OpenGL#Racket). This allowed me to at the very least create a window with which I could draw simple shapes in different colors. But this still didn't tell me how to update the window so I could "animate" the graphics. For this, I found a Github project that showed how to create an update procedure that updates the screen so the graphics can be "animated". Using this, I was able to rotate the object I drew so it apppeared to spin, rather than just sit there and do nothing, which would be boring.
 
-This file IS your report for the assignment, including code and your story.
+All the code for my example can be found in the file "sgl_test.rkt" included in this repository. And here is a screenshot of the output.
 
-Code is super easy in markdown, which you can easily do inline `(require net/url)` or do in whole blocks:
-```
-#lang racket
-
-(require net/url)
-
-(define myurl (string->url "http://www.cs.uml.edu/"))
-(define myport (get-pure-port myurl))
-(display-pure-port myport)
-```
-
-### My Library: (library name here)
-Write what you did!
-Remember that this report must include:
- 
-* a narrative of what you did
-* the code that you wrote
-* output from your code demonstrating what it produced
-* any diagrams or figures explaining your work 
- 
-The narrative itself should be no longer than 350 words. Yes, you can add more files and link or refer to them. This is github, handling files is awesome and easy!
-
-Ask questions publicly in the Piazza group.
-
-### How to Do and Submit this assignment
-
-1. To start, [**fork** this repository][forking].
-1. You might want to [**Clone**][ref-clone] this repository to your computer
-  2. (This assignment is just one README.md file, so you can edit it right in github without cloning if you like)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your solution.
-1. [**Push**][ref-push]/sync the changes up to your GitHub (skip this if you didn't clone)
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-<!-- Links -->
-[piazza]: https://piazza.com/class/i55is8xqqwhmr?cid=411
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+![OPL FP1 Output](/sgl_test.png)
