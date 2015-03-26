@@ -1,27 +1,7 @@
 # Final Project Assignment 1: Exploration (FP1) 
 DUE March 25, 2015 Wednesday (2015-03-25)
 
-Full assignment specfication is [on Piazza.][piazza]
-
-Write your report right in this file. Instructions are below. You can delete them if you like, or just leave them at the bottom.
-You are allowed to change/delete anything in this file to make it into your report. It will be public, FYI.
-
-This file is formatted with the [**markdown** language][markdown], so take a glance at how that works.
-
-This file IS your report for the assignment, including code and your story.
-
-Code is super easy in markdown, which you can easily do inline `(require net/url)` or do in whole blocks:
-```
-#lang racket
-
-(require net/url)
-
-(define myurl (string->url "http://www.cs.uml.edu/"))
-(define myport (get-pure-port myurl))
-(display-pure-port myport)
-```
-
-### My Library: (library name here)
+### My Library: racket/draw and also racket/gui/base
 Write what you did!
 Remember that this report must include:
  
@@ -33,6 +13,18 @@ Remember that this report must include:
 The narrative itself should be no longer than 350 words. Yes, you can add more files and link or refer to them. This is github, handling files is awesome and easy!
 
 Ask questions publicly in the Piazza group.
+
+
+
+```
+#lang racket
+
+(require net/url)
+
+(define myurl (string->url "http://www.cs.uml.edu/"))
+(define myport (get-pure-port myurl))
+(display-pure-port myport)
+```
 
 ### How to Do and Submit this assignment
 
