@@ -3,7 +3,7 @@ DUE March/25/2005
 
 Student: Kevin Wacome
 
-### My Libraries: racket/gui, rsound, portaudio and ffi/vector
+### My Libraries: [The Racket Graphical Interface Toolkit](http://docs.racket-lang.org/gui/), [RSound: A Sound Engine for Racket](http://pkg-build.racket-lang.org/doc/rsound/index.html), [Portaudio: Bindings for the Portaudio portable sound library](http://pkg-build.racket-lang.org/doc/portaudio/index.html), [Safe Homogenous Vectors](http://docs.racket-lang.org/foreign/homogeneous-vectors.html)
 
 I like music and I play guitar, poorly, as a hobby. I would like my final project to involve the manipulation of sound. The ffi/vector, rsound and portaudio racket libraries contain the necessary procedures and data types to generate sound. I am not very well versed in how sound is represented digitally. I just copied the racket documentation for generating a basic sine wave and extended the code. I intend to research this later so I have a better understanding of the inner workings.
 
@@ -19,6 +19,5 @@ Saving audio to a file:
 Playing audio with a media player:
 ![playing audio file](https://github.com/ktwaco/FP1/blob/master/output_pics/playing_file.png)
 
-<!-- for some reason the ![link](https://soundcloud.com/goooon/c5-tone) is not working... -->
-The saved audio can be found on github and on https://soundcloud.com/goooon/c5-tone .
+The saved audio can be found on github and on [link](https://soundcloud.com/goooon/c5-tone).
 
