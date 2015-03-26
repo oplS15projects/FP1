@@ -30,17 +30,12 @@ I was looking at the different libraries, and then I found one that caught my ey
 
 
 ```
-![Image of Yaktocat](C:\Users\Ronald\Desktop\Capture.png)
-
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
 
 
-Remember that this report must include:
- 
-* a narrative of what you did
-* the code that you wrote
-* output from your code demonstrating what it produced
-* any diagrams or figures explaining your work 
+![Image of Cards](https://github.com/ronaldlc2245/FP1/blob/master/Capture.PNG)
+
+
+
  
 
 
