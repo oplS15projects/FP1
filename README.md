@@ -78,6 +78,8 @@ v> (chance-heads 10 4)
 * > (chance 10 8)
 * 6.37109375
 * any diagrams or figures explaining your work 
+* 
+<a href='http://postimg.org/image/5j0bg6pm7/' target='_blank'><img src='http://s3.postimg.org/5j0bg6pm7/image.jpg' border='0' alt="mm" /></a>
 
  <p align="center">
    <img src="<a href='http://postimg.org/image/5j0bg6pm7/' target='_blank'><img src='http://s3.postimg.org/5j0bg6pm7/image.jpg' border='0' alt="mm" /></a> "/>
