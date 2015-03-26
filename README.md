@@ -80,15 +80,9 @@ v> (chance-heads 10 4)
 * any diagrams or figures explaining your work 
 * 
 
+<a href="http://imgur.com/q7Vwg5h"><img src="http://i.imgur.com/q7Vwg5h.png" title="source: imgur.com" /></a>
+<a href="http://imgur.com/9jqlDki"><img src="http://i.imgur.com/9jqlDki.png" title="source: imgur.com" /></a>
 
- <p align="center">
-   <a href='http://postimg.org/image/5j0bg6pm7/' target='_blank'><img src='http://s3.postimg.org/5j0bg6pm7/image.jpg' border='0' alt="mm" /></a>
- </p>
-
- <p align="center">
-   <img src="/http://s3.postimg.org/obc6jrm0j/image.png"/>
- </p>
- 
 * The narrative itself should be no longer than 350 words. Yes, you can add more files and link or refer to them. This is * github, handling files is awesome and easy!
 
 * Ask questions publicly in the Piazza group.
