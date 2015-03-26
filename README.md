@@ -3,6 +3,34 @@ DUE March 25, 2015 Wednesday (2015-03-25)
 
 Full assignment specfication is [on Piazza.][piazza]
 
+I used the xml library. I first played around with opening xml documents and writting xml to the screen. My code below takes an xml style string and prints it to the screen in xml format.
+
+```
+#lang racket
+(require xml)
+ 
+(define xml-str "<?xml version=1.0 ?>
+       <root>
+           <title>Absolutely (Story of a Girl)</title>
+           <length>189333</length>
+       </root>")
+ 
+
+(define xml (read-xml/document (open-input-string xml-str)))
+(write-xml xml)
+```
+
+Output: 
+
+<?xml version=1.0 ?>
+<root>
+           <title>Absolutely (Story of a Girl)</title>
+           <length>189333</length>
+       </root>
+
+
+
+
 Write your report right in this file. Instructions are below. You can delete them if you like, or just leave them at the bottom.
 You are allowed to change/delete anything in this file to make it into your report. It will be public, FYI.
 
