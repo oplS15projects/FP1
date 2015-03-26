@@ -57,9 +57,8 @@ Ask questions publicly in the Piazza group.
 
 The library that i looked at can be found [**Html-parsing**][html-parsing] 
 In this library i played with how it goes through each tag it finds and reads the information between the 
-opening tag <html> to the closing tag </html> and prints out the information having removed the tags and just 
-left the data/ value between the tags. For this to work the tags have to be inbuilt in HTML or it will ignor the tag that it does not recognize and look over it while parsing. i put in a tag <me> </me> which the content was ignored by the parsor and 
-was not printed out. This tag can be handled by an Xml parsor .
-I edited a html file added afew lines to eat got a small post online on facebook 
+opening tag "html" to the closing tag "/html" and prints out the information having removed the tags and just 
+left the data/ value between the tags. For this to work the tags have to be inbuilt in HTML or it will ignor the tag that it does not recognize and look over it while parsing. i put in a tag "me"opening and closing tags "/me" which the content was ignored by the parsor and was not printed out. This tag can be handled by an Xml parsor .
+I edited a html file added afew lines to it. Used a face book feed as part of the presentation.
 [**facebook feed**][facebook feed]  from forbes and inlcuded it on the page layout of the html. 
 
