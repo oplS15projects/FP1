@@ -62,3 +62,57 @@ left the data/ value between the tags. For this to work the tags have to be inbu
 I edited a html file added afew lines to it. Used a face book feed as part of the presentation.
 [**facebook feed**][facebook feed]  from forbes and inlcuded it on the page layout of the html. 
 
+The Code that i used is shown below.
+```
+#lang racket
+;Norman Mutunga
+;Testing the Html Parsor.
+(require html)
+
+(module html-example racket
+  
+  ; Some of the symbols in html and xml conflict with
+  ; each other and with racket/base language, so we prefix
+  ; to avoid namespace conflict.
+  (require (prefix-in h: html)
+           (prefix-in x: xml))
+  
+  (define an-html
+    (h:read-xhtml
+     (open-input-string
+      (string-append
+       "<html><head><title>HTML Title</title></head><body>"
+       "<p> This would be a Html parsor OUT PUT ------>> </p> " 
+       " <p> There’s nothing more central to Facebook, literally, than its news feed, the middle column of posted stories from friends and business connections, or on the smartphone, the only column. Besides serving as the key place where ads run, it’s what makes people keep coming back to Facebook–though all too often they wonder why the heck they got this viral video post when their sister’s post got lost in the scrolling depths. </p>"
+       "<me> what can you see??? Nothing </me>"
+       "</body></html>"))))
+  
+  ; extract-pcdata: html-content/c -> (listof string)
+  ; Pulls out the pcdata strings from some-content.
+  (define (extract-pcdata some-content)
+    (cond [(x:pcdata? some-content)
+           (list (x:pcdata-string some-content))]
+          [(x:entity? some-content)
+           (list)]
+          [else
+           (extract-pcdata-from-element some-content)]))
+  
+  ; extract-pcdata-from-element: html-element -> (listof string)
+  ; Pulls out the pcdata strings from an-html-element.
+  (define (extract-pcdata-from-element an-html-element)
+    (match an-html-element
+      [(struct h:html-full (attributes content))
+       (apply append (map extract-pcdata content))]
+      
+      [(struct h:html-element (attributes))
+       '()]))
+  
+  (printf "~s\n" (extract-pcdata an-html)))
+;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+(require 'html-example)
+```
+The output from the code below ;
+```
+("HTML Title" " This would be a Html parsor OUT PUT ------>> " "  " " There’s nothing more central to Facebook, literally, than its news feed, the middle column of posted stories from friends and business connections, or on the smartphone, the only column. Besides serving as the key place where ads run, it’s what makes people keep coming back to Facebook–though all too often they wonder why the heck they got this viral video post when their sister’s post got lost in the scrolling depths. ")
+
+```
