@@ -52,6 +52,8 @@ Then I was able to follow the documentation and edit different pieces of the cod
  #:x-min -8 #:x-max 8))
 '''
 
+<img src=http://imgur.com/yjdl6FT>
+
 ![Output Screenshot](http://imgur.com/yjdl6FT)
 
 ### How to Do and Submit this assignment
