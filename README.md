@@ -21,8 +21,49 @@ Code is super easy in markdown, which you can easily do inline `(require net/url
 (display-pure-port myport)
 ```
 
-### My Library: (library name here)
-Write what you did!
+### My Library: racket/gui
+I played around with buttons and adding a canvas that did nothing in a window. I observed the behavior of the event queue in racket and watched how the message loop operates. I added a blank canvas to see what resizing would do to teh window. It isn't apparent here but I ran the code under different desktop environments under a linux environment and on Windows 8 as well through drracket, to similar effects.
+
+Some thoughts come to mind which make the idea of gui troubling to do with functional programming and GUIs. GUIS need mutable state and perfect functional programming cannot achieve this. Coming from a more haskell-y sandbox environment I understand that absolutely nothing gets done without mutable state and side effects so I suppose this is tangent is rather irrelevant.
+
+
+code: 
+#lang racket/gui
+
+(require racket/gui/base)
+
+(define frame (new frame% [label "Senpai Wolf's Window"]))
+
+(define msg (new message% [parent frame] 
+                 [label "Senpai didn't notice me :("]))
+
+(new button% [parent frame]
+     [label "please notice me senpai"]
+     [callback [lambda (button event)
+                 (send msg set-label "senpai noticed me :)")]])
+
+(new button% [parent frame]
+     [label "Come on and slam"]
+     [callback [lambda (button event)
+                 (send msg set-label "AND WELCOME TO THE JAM")]])
+
+(send frame show #t)
+
+
+(define my-canvas%
+  (class canvas% ; The base class is canvas%
+    ; Define overriding method to handle mouse events
+    (define/override (on-event event)
+      (send msg set-label "Canvas mouse"))
+    ; Define overriding method to handle keyboard events
+    (define/override (on-char event)
+      (send msg set-label "Canvas keyboard"))
+    ; Call the superclass init, passing on all init args
+    (super-new)))
+ 
+; Make a canvas that handles events in the frame
+(new my-canvas% [parent frame])
+
 Remember that this report must include:
  
 * a narrative of what you did
