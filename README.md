@@ -116,7 +116,7 @@ I went through couple of libraries to see what options I might have for the proj
                          "Hey, this is my first post!")))
 
 * output from your code demonstrating what it produced
-<br />There are several small pictures as the output such as this one: 
+<br />There are several small pictures as the output such as this one: [pumpkin](http://imgur.com/149mfDv)
 
 Your Web application is running at http://localhost:63182/servlets/standalone.rkt.
 Stop this program at any time to terminate the Web Server.
