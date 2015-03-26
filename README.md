@@ -3,7 +3,15 @@ DUE March 25, 2015 Wednesday (2015-03-25)
 
 ### My Library: racket/draw and also racket/gui/base
 
-For this exploration, I wanted to see if I could make some kind of simple game. At first I tried 
+For this exploration, I wanted to see if I could make some kind of simple game. At first I tried using the 2htdp/image library but couldn't seem to make sense of it. I think I would have a much easier time trying to use it if I could find some examples or something. Maybe I'll look into that for the next exploration. 
+Anyway, I used racket/gui/base to make a window. After a while of trying to use 2htdp/image I switched to racket/draw and managed to get a rectangle to move in the window. I really just expanded from there. I made maps which are lists of lists of numbers. Each frame, the draw function draws a square in the proper place using the draw-rectangle function from racket/draw.
+
+![](/images/firstpart1.png)
+
+![](/images/firstpart2.png)
+
+![](/images/firstpart3.png)
+
 
 ```
 #lang racket
@@ -420,5 +428,3 @@ For this exploration, I wanted to see if I could make some kind of simple game. 
                    [notify-callback update]
                    [interval 30]))
 ```
-
-![](/images/firstpart1.png)
