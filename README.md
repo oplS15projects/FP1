@@ -1,5 +1,4 @@
 # Final Project Assignment 1: Exploration (FP1)
-DUE March/25/2005
 
 Student: Kevin Wacome
 
