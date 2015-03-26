@@ -25,10 +25,13 @@ Code is super easy in markdown, which you can easily do inline `(require net/url
 Write what you did!
 Remember that this report must include:
  
-* a narrative of what you did
-* the code that you wrote
-* output from your code demonstrating what it produced
-* any diagrams or figures explaining your work 
+* **a narrative of what you did**
+  * I had a really hard time trying to figure out what to do with this project or exploring any options because I am honestly dislike writing scheme.  But I did find out from a friend that racket can be used as a server type program so I looked into options. I'm not sure what libraries it uses but he did mention something about xrepl and /server or /tcp stuff.  I do want to look into writing something that could host a web page of some sort so I looked up some ideas and i found the racket documentation actually had a small tutorial on how to do this [Link here](http://docs.racket-lang.org/more/index.html).  I tried editing some code to see how it works and so far I kept getting errors so I'm just giving you what I had up until now and will want to look into it further as days go by.  I basically tried to edit the code after doing some step by step writing and I will want to explore what each thing does (later on) (like tcp, listener, port-no, regexp-match).  I couldn't figure out how to actually make my machine host the code with drRacket so I downloaded and installed racket, did what it told me to do (install *or try to* xrepl) and then fired it up and ran (enter! "1.rkt") then (serve 8080). What I can assume is that it used the code from 1.rkt and use that code to serve port 8080 on my machine/network to host a wannabe website. And that stops right here as I am writing this narrative.
+* **the code that you wrote**
+![alt text](https://github.com/lqtran/FP1/blob/master/code.JPG "Code written")
+* **output from your code demonstrating what it produced**
+![alt text](https://github.com/lqtran/FP1/blob/master/SS.JPG "Product")
+* **any diagrams or figures explaining your work** 
  
 The narrative itself should be no longer than 350 words. Yes, you can add more files and link or refer to them. This is github, handling files is awesome and easy!
 
