@@ -71,7 +71,9 @@ DUE March 25, 2015 Wednesday (2015-03-25)
 
 ### My Library: Racket GUI Toolkit
 ### Narrative:
-The code I wrote creates a two-frame program. The first frame is a simple loader with both a menu bar and a menu panel filled with buttons. This frame would be used to load a file containing data to be visualized and a way to save it when done. The second frame is the actual viewer and editor where a data structure wouled be represented graphically. A user would be able to modify the data structure and its contents in this window and then save the changes which would generate a new list in Racket.
+The code I wrote creates a two frame program. The first frame is a simple loader with both a menu bar and a menu panel filled with buttons. This frame would be used to load a file containing data to be visualized and a way to save it when the user is done editing. The second frame is the actual viewer and editor where a data structure would be represented graphically. A user would be able to modify the data structure and its contents in this window and then save the changes which would generate a new list in Racket. 
+
+My intent with this setup is to build a tool to display lists and trees graphically and provide editing capabilities. I could later add in template support for predefined data structures that users could edit and build off of. One example that came to mind is a car template to keep track of common maintenance responsibilities, part numbers, dates and mileages that the jobs were last performed, etc. The user would edit some of this and the structure would populate certain sub-lists such as the next ten maintenance jobs to be performed. This is just a possible, general direction though.
 
 ### Program Output/Images:
 https://drive.google.com/folderview?id=0B7j4TU2jQ5KxflNySlI4ODhaSnd1ajd3QWFSaTB3ZmpWeWFzbkdqSWxmenJ2SzY3Y1VkeG8&usp=sharing
