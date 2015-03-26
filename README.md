@@ -21,7 +21,7 @@ Code is super easy in markdown, which you can easily do inline `(require net/url
 (display-pure-port myport)
 ```
 
-### My Library: (library name here)
+### My Library: math
 Write what you did!
 Remember that this report must include:
  
@@ -80,8 +80,9 @@ v> (chance-heads 10 4)
 * any diagrams or figures explaining your work 
 * 
 
-<a href="http://imgur.com/q7Vwg5h"><img src="http://i.imgur.com/q7Vwg5h.png" title="source: imgur.com" /></a>
-<a href="http://imgur.com/9jqlDki"><img src="http://i.imgur.com/9jqlDki.png" title="source: imgur.com" /></a>
+//sorry for the many edits, still trying to figure this out.
+http://i.imgur.com/9jqlDki.png
+http://i.imgur.com/q7Vwg5h.png
 
 * The narrative itself should be no longer than 350 words. Yes, you can add more files and link or refer to them. This is * github, handling files is awesome and easy!
 
