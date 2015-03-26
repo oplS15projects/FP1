@@ -1,5 +1,4 @@
 # Final Project Assignment 1: Exploration (FP1) 
-Alex Li
 
 ## My Library: 
   games/cards
