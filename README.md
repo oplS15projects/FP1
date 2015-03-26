@@ -23,12 +23,13 @@ Code is super easy in markdown, which you can easily do inline `(require net/url
 I went through couple of libraries to see what options I might have for the project. 
 
 ### My Library: Slideshow, pict/flash,  pict/balloon, require pict/face, web-server/insta
-* a narrative of what you did
- I went through the documentation and modified the codes given in the documentation, created some fun shapes in different colors. Using  libraries and functions defined in the libraries, I tried creating shapes like circles and colors both filled in with color and empty forms. I tried appending the shapes both vertically and horizontally created attached images. Also, I tried creating simple web applications using web-server/insta.
+* a narrative of what you did:
+<br />I went through the documentation and modified the codes given in the documentation, created some fun shapes in different colors. Using  libraries and functions defined in the libraries, I tried creating shapes like circles and colors both filled in with color and empty forms. I tried appending the shapes both vertically and horizontally created attached images. Also, I tried creating simple web applications using web-server/insta.
 
 
 * the code that you wrote
-#lang slideshow 
+<br />
+;#lang slideshow 
 
 ;(circle 25)
 ;(rectangle 10 20)
@@ -102,7 +103,7 @@ I went through couple of libraries to see what options I might have for the proj
 
 ;(face* 'none 'plain #t default-face-color 6)
 
-#lang web-server/insta
+;#lang web-server/insta
 (define (start request)
   (response/xexpr
    '(html
@@ -115,7 +116,7 @@ I went through couple of libraries to see what options I might have for the proj
                          "Hey, this is my first post!")))
 
 * output from your code demonstrating what it produced
-There are several small pictures as the output such as this one: 
+<br />There are several small pictures as the output such as this one: 
 
 Your Web application is running at http://localhost:63182/servlets/standalone.rkt.
 Stop this program at any time to terminate the Web Server.
