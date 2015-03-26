@@ -1,6 +1,11 @@
 # Final Project Assignment 1: Exploration (FP1) 
 DUE March 25, 2015 Wednesday (2015-03-25)
 
+
+### My Library: (Virtual Playing Cards Library)
+
+I was looking at the different libraries, and then I found one that caught my eye. I decided to chose the Virtual Playing Cards Library. It sounds interesting and creating a card game with Racket sounded cool.
+
 ```
 #lang racket
 
@@ -25,11 +30,11 @@ DUE March 25, 2015 Wednesday (2015-03-25)
 
 
 ```
-![Image of Cards](C:\Users\Ronald\Desktop\Capture.png)
+![Image of Yaktocat](C:\Users\Ronald\Desktop\Capture.png)
 
-### My Library: (Virtual Playing Cards Library)
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
 
-I was looking at the different libraries, and then I found one that caught my eye. I decided to chose the Virtual Playing Cards Library. It sounds interesting and creating a card game with Racket sounded cool.
+
 Remember that this report must include:
  
 * a narrative of what you did
