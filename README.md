@@ -26,4 +26,4 @@ Ask questions publicly in the Piazza group.
 (display-pure-port myport)
 ```
 
-!(alt text)[/images/firstpart1.png]
+![](/images/firstpart1.png)
