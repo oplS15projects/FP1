@@ -5,7 +5,11 @@ DUE March 25, 2015 Wednesday (2015-03-25)
 
 For this exploration, I wanted to see if I could make some kind of simple game. At first I tried using the 2htdp/image library but couldn't seem to make sense of it. I think I would have a much easier time trying to use it if I could find some examples or something. Maybe I'll look into that for the next exploration. 
 
-Anyway, I used racket/gui/base to make a window. After a while of trying to use 2htdp/image I switched to racket/draw and managed to get a rectangle to move in the window. I really just expanded from there. I made maps which are lists of lists of numbers. Each frame, the draw function draws a square in the proper place using the draw-rectangle function from racket/draw.
+Anyway, I used racket/gui/base to make a window. After a while of trying to use 2htdp/image I switched to racket/draw and managed to get a rectangle to move in the window. I really just expanded from there. I made maps which are lists of lists of numbers. Each frame, (that is, each time the timer at the bottom calls the update function) the draw function draws a square in the proper place using the draw-rectangle function from racket/draw.
+
+Taking a hint from that problem on the test about colors, I defined make-sprite to just be list. Each sprite I make has a name, a way to draw itself, a way to update itself, an x coordinate, a y coordinate, and a state. Each frame, I map accross all the sprites in the current sprite list using a lambda that uses their own update function on themselves. 
+
+The player character is a blue square, controlled by the arrow keys. You can collect keys, enter doors to go to the next map, and being touched by an enemy kills you.
 
 ![](/images/firstpart1.png)
 
@@ -13,6 +17,9 @@ Anyway, I used racket/gui/base to make a window. After a while of trying to use 
 
 ![](/images/firstpart3.png)
 
+
+
+By the way, I guess I should mention I'm not particularly proud of this code. I used a bunch of conds with no else because I didn't know how else to do it. I also used set! in quite a few places and kind of felt dirty every time I did. I don't know how to avoid using it in 
 
 ```
 #lang racket
