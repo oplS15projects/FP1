@@ -1,38 +1,26 @@
 # Final Project Assignment 1: Exploration (FP1) 
 DUE March 25, 2015 Wednesday (2015-03-25)
 
-Full assignment specfication is [on Piazza.][piazza]
+<p align="center">
+  <img src="screenshot.png"/>
+</p>
 
-Write your report right in this file. Instructions are below. You can delete them if you like, or just leave them at the bottom.
-You are allowed to change/delete anything in this file to make it into your report. It will be public, FYI.
-
-This file is formatted with the [**markdown** language][markdown], so take a glance at how that works.
-
-This file IS your report for the assignment, including code and your story.
-
-Code is super easy in markdown, which you can easily do inline `(require net/url)` or do in whole blocks:
 ```
 #lang racket
 
-(require net/url)
+(require plot)
 
-(define myurl (string->url "http://www.cs.uml.edu/"))
-(define myport (get-pure-port myurl))
-(display-pure-port myport)
+(plot3d (surface3d (λ (x y) (* (cos (* x x)) (sin y)))
+                     (- pi) pi (- pi) pi)
+          #:title "Final Project Part 1 - Rohit Krishnan"
+          #:x-label "x" #:y-label "y" #:z-label "cos(x) sin(y)")
 ```
 
-### My Library: (library name here)
-Write what you did!
-Remember that this report must include:
- 
-* a narrative of what you did
-* the code that you wrote
-* output from your code demonstrating what it produced
-* any diagrams or figures explaining your work 
- 
-The narrative itself should be no longer than 350 words. Yes, you can add more files and link or refer to them. This is github, handling files is awesome and easy!
+### Plot Library
 
-Ask questions publicly in the Piazza group.
+Using the plot library is super easy! I started by going to the [Racket Plot Documentation] and
+I was able to draw this 3D shape which rendered a graph of an equation which is hard coded in the 
+racket code. 
 
 ### How to Do and Submit this assignment
 
@@ -44,6 +32,8 @@ Ask questions publicly in the Piazza group.
 1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
 
 <!-- Links -->
+[Racket Plot Documentation]: http://docs.racket-lang.org/plot/intro.html#%28part._.Plotting_2.D_.Graphs%29
+
 [piazza]: https://piazza.com/class/i55is8xqqwhmr?cid=411
 [markdown]: https://help.github.com/articles/markdown-basics/
 [forking]: https://guides.github.com/activities/forking/
