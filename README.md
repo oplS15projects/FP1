@@ -1,5 +1,6 @@
 My Library: racket/draw
 I explored web for small project ideas using lisp and found some on cs.brown.edu and intend to implement one of the games that were written in scheme in Dr Racket. I started exploring libraries related to these applications and learned that The racket/gui/base library provides all of the class, interface, and procedure bindings in addition to the bindings of racket/draw and file/resource. I used sample code provided in the Racket documentation for  racket/draw.
+
 `    #lang racket
 (require racket/gui)
 (require racket/draw)
