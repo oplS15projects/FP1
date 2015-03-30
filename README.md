@@ -1,6 +1,6 @@
 My Library: racket/draw
 I explored web for small project ideas using lisp and found some on cs.brown.edu and intend to implement one of the games that were written in scheme in Dr Racket. I started exploring libraries related to these applications and learned that The racket/gui/base library provides all of the class, interface, and procedure bindings in addition to the bindings of racket/draw and file/resource. I used sample code provided in the Racket documentation for  racket/draw.
-`#lang racket
+`    #lang racket
 (require racket/gui)
 (require racket/draw)
 (define target (make-bitmap 30 30)) ; A 30x30 bitmap 
@@ -20,7 +20,7 @@ I explored web for small project ideas using lisp and found some on cs.brown.edu
 (make-object image-snip% target)`
  [Displays: ](http://weblab.cs.uml.edu/~asuriset/91301/picture1.png)
 
-`(send dc set-brush "green" 'solid) 
+`    (send dc set-brush "green" 'solid) 
 (send dc set-pen "blue" 1 'solid) 
 (send dc draw-rectangle 0 10 30 10) 
 (send dc set-pen "red" 3 'solid) 
@@ -34,7 +34,7 @@ I explored web for small project ideas using lisp and found some on cs.brown.edu
 [Displays: ](http://weblab.cs.uml.edu/~asuriset/91301/picture3.png)
 
 Adding a face suing draw library:
-`#lang racket
+`    #lang racket
 (require racket/gui) 
 (require racket/draw) 
 (require racket/math) 
