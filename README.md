@@ -26,7 +26,7 @@ I explored web for small project ideas using lisp and found some on cs.brown.edu
 (send dc set-pen "red" 3 'solid) 
 (send dc draw-line 0 0 30 30) 
 (send dc draw-line 0 30 30 0)
-Displays:
+[Displays: !](http://weblab.cs.uml.edu/~asuriset/91301/picture1.png)
  
 (send dc set-pen "white" 1 'transparent) 
 (send dc set-brush "black" 'solid) 
