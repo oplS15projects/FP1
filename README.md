@@ -29,6 +29,7 @@ I went through couple of libraries to see what options I might have for the proj
 
 * the code that you wrote
 <br />
+```
 ;#lang slideshow 
 
 ;(circle 25)
@@ -114,6 +115,7 @@ I went through couple of libraries to see what options I might have for the proj
 
 (define BLOG (list (post "March 03, 2015"
                          "Hey, this is my first post!")))
+```
 
 * output from your code demonstrating what it produced
 <br />There are several small pictures as the output such as this one: [pumpkin](http://imgur.com/149mfDv)
