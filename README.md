@@ -51,3 +51,7 @@ Ask questions publicly in the Piazza group.
 [ref-commit]: http://gitref.org/basic/#commit
 [ref-push]: http://gitref.org/remotes/#push
 [pull-request]: https://help.github.com/articles/creating-a-pull-request
+
+######: write up:
+I started this assignment by browsing the link provided on piazza for racket documentation. I was interested with many libraries. I dipped my feet into plot, which was a 3d modeling library but chose to use racket/gui for this assignment.
+I started off by reading some of the code provided on the documentation website to get accustomed to creating a frame. I then tried to do some things on my own. I managed to create a button named credits, that on a click event, will launch a pop-up that simply holds some text that gives credit to me. I also played around with the sizing of the GUI. After I did this I continued to read the website for documentation on how to use this library with exit buttons, stored event procedures  and how to change cosmetics of the GUI. I noticed that the functions are well thought and are standard from most GUI libraries, but this library allows for popup frames more conveniently. This has always been a problem for me when trying to create pop-ups using a different language, but maybe the recursive element of racket solves this issue. The set-background color did not work for me in the context the documentation provided, but that was the only trouble I had with this library.
