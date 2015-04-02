@@ -42,7 +42,7 @@ I explored web for small project ideas using lisp and found some on cs.brown.edu
 ```
  ![Displays:   ](https://github.com/asuris91301/FP1/blob/master/picture3.png)
 
-Adding a face suing draw library:
+Adding a face using draw library:
 ```
 #lang racket
 (require racket/gui) 
