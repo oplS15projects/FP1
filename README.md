@@ -23,7 +23,7 @@ I explored web for small project ideas using lisp and found some on cs.brown.edu
 (make-object image-snip% target)
 ```
  [Displays: ](http://weblab.cs.uml.edu/~asuriset/91301/picture1.png)
- ![Displays](https://raw.github.com/asuris91301/FP1/picture1.png)
+ ![Displays](https://raw.github.com/asuris91301/asuris91301/FP1/picture1.png)
 
 ```
 (send dc set-brush "green" 'solid) 
