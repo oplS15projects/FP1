@@ -22,8 +22,8 @@ I explored web for small project ideas using lisp and found some on cs.brown.edu
 ;(send target save-file "box.png" 'png)
 (make-object image-snip% target)
 ```
- [Displays: ](http://weblab.cs.uml.edu/~asuriset/91301/picture1.png)
- ![Displays](https://github.com/asuris91301/FP1/blob/master/picture1.png)
+ 
+ ![Displays:   ](https://github.com/asuris91301/FP1/blob/master/picture1.png)
 
 ```
 (send dc set-brush "green" 'solid) 
@@ -33,14 +33,14 @@ I explored web for small project ideas using lisp and found some on cs.brown.edu
 (send dc draw-line 0 0 30 30) 
 (send dc draw-line 0 30 30 0)
 ```
-[Displays: ](http://weblab.cs.uml.edu/~asuriset/91301/picture2.png)
+ ![Displays:   ](https://github.com/asuris91301/FP1/blob/master/picture2.png)
  
 ```
 (send dc set-pen "white" 1 'transparent) 
 (send dc set-brush "black" 'solid) 
 (send dc draw-ellipse 5 5 20 20)
 ```
-[Displays: ](http://weblab.cs.uml.edu/~asuriset/91301/picture3.png)
+ ![Displays:   ](https://github.com/asuris91301/FP1/blob/master/picture3.png)
 
 Adding a face suing draw library:
 ```
@@ -76,7 +76,7 @@ Adding a face suing draw library:
 (draw-face dc) 
 (make-object image-snip% target)
 ```
-[Displays: ](http://weblab.cs.uml.edu/~asuriset/91301/picture4.png)
+ ![Displays:   ](https://github.com/asuris91301/FP1/blob/master/picture4.png)
  
 
 
