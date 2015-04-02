@@ -13,62 +13,88 @@ Bonus: Found the way the modify global constant.
 
 Code:
 ```
-#lang racket
+#lang racket/gui
 
-(require racket/draw)
-(require racket/math)
+(require racket/gui/base)
 
-
-(define target (make-bitmap 150 150))
-(define dc (new bitmap-dc% [bitmap target]))
-
-(send dc set-brush "Lightblue" 'solid)
-(send dc draw-rectangle 0 0 150 150)
-
-(send dc set-smoothing 'aligned)
-(send dc set-pen "yellow" 1 'solid)
-(send dc set-brush "yellow" 'solid)
-(send dc draw-ellipse 99 1 50 50)
+;; main window frame
+(define frame (new frame% 
+                   [label "Click Counter?"]
+                   [width 300]
+                   [height 400]
+                   ))
 
 
+;;;;; Score realted ;;;;;
 
-(define no-pen (new pen% [style 'transparent]))
-(define no-brush (new brush% [style 'transparent]))
-(define skin-brush (new brush% [color "NavajoWhite"]))
-(define yellow-brush (new brush% [color "yellow"]))
-(define red-brush (new brush% [color "red"]))
-(define red-pen (new pen% [color "red"] [width 2]))
-(define yellow-pen (new pen% [color "yellow"] [width 2]))
+;; total clicked times
+(define sum 0)
 
+;; use to transder interger into string
+(define (score-count x)
+  (cond
+    [(eq? x 0) "Score"]
+    [(> x 0) (number->string x)]))
 
-(define draw-face dc)
-(send dc set-smoothing 'aligned)
+;; use to add 1 to global var 'sum'
+(define (increase-sum)
+  (set! sum (add1 sum)))
 
-(send dc set-pen no-pen)
-(send dc set-brush skin-brush)
-(send dc draw-ellipse 1 49 100 100)
-
-
-(send dc set-pen "black" 2 'solid)
-(send dc draw-arc 25 80 20 20 (* 2 pi) (* 1 pi))
-(send dc draw-arc 58 80 20 20 (* 2 pi) (* 1 pi))
-
-(send dc set-pen no-pen)
-(send dc set-brush red-brush)
-(send dc draw-arc 26 85 50 50 pi (* 2 pi))
+;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-(define dc2 (new bitmap-dc% [bitmap target]))
+;; define horizontal panel
+(define panel (new horizontal-panel% 
+                   [parent frame]
+                   [vert-margin 1]
+                   [alignment '(center center)]))
 
-(send dc2 set-text-foreground "Brown")
-(send dc2 set-font (make-font #:size 12 
-                              #:weight 'bold))
-(send dc2 draw-text "OPL is fun! JK." 8 30)
+;; shows the letter 'Score:'
+(define score (new message% [parent panel]           
+                   [label "Score:"]
+                   [auto-resize 1]))
 
-;;run here
-target
+;; shows the current score
+(define score-points (new message% [parent panel]           
+                   [label "  "]
+                   [auto-resize 1]))
+
+
+;; message telling user how to start 
+(define msg (new message% 
+                 [parent frame]
+                 [label "Click here to start"]
+                 [auto-resize 1]))
+
+;; the button that takes the count and different cheer up messages
+(new button% [parent frame]
+     [label "Click Here"]
+     [callback (lambda (button event)
+                 (begin
+                   (increase-sum)
+                   (send score-points set-label (score-count sum))
+                     (cond
+                       [(< sum 1) (send msg set-label "Click here to start")]
+                       [(< sum 5) (send msg set-label "You're doing good!")]
+                       [(< sum 10) (send msg set-label "Amazing!!")]
+                       [(< sum 15) (send msg set-label "Wow. That finger.")]
+                       [(< sum 30) (send msg set-label "Don't stop clicking...")]
+                       [else (send msg set-label "Stop it bro too much fun")]
+
+                       ))
+                 )])
+
+;; exit button
+(new button% [parent frame]
+     [label "Exit"]
+     [callback (lambda (x y) (exit))])
+
+;; show main frame
+(send frame show #t)
 ```
 
 Output:
 
-A picture of a happy boy under the sun saying OPL is fun.
+It has a window. It prints the score in the middle of the frame. It has 2 buttons, Click Counter and Exit.
+When you click on "Click Here", score + 1.
+No time limit, have fun.
