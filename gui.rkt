@@ -1,18 +1,3 @@
-# Final Project Assignment 1: Exploration (FP1) 
-DUE March 25, 2015 Wednesday (2015-03-25)
-
-Full assignment specfication is [on Piazza.][piazza]
-
-### My Library: racket/gui
-
-I chose the GUI library from racket because user interface is a must later in the project. 
-
-I followed the windowing tutorial on racket, and expanded it a little bit. I make a tiny program (game?) that counts the clicks on the button, and display various cheering messages during different scores. 
-I learned to use frame, message, button, and the arguments that each of them takes. 
-Bonus: Found the way the modify global constant.
-
-Code:
-```
 #lang racket/gui
 
 (require racket/gui/base)
@@ -91,10 +76,3 @@ Code:
 
 ;; show main frame
 (send frame show #t)
-```
-
-Output:
-
-It has a window. It prints the score in the middle of the frame. It has 2 buttons, Click Counter and Exit.
-When you click on "Click Here", score + 1.
-No time limit, have fun.
