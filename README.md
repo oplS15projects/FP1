@@ -3,7 +3,7 @@ I plan to do a small scheme game with my partner. It might use the gui part, so 
 When running the code. It would come out a window called LOGIN. (picture1). Users can type his ID and password, then click OK. There appears a new window called information. (picture2). This window is consider as a container for users’ information. Then minimize the window, back to the LOGIN window, user can get a “quit” window after close the LOGIN window.(picture3). 
 
 Code:  
-
+```racket
 #lang racket 
 
 (require racket/gui/base) 
@@ -49,3 +49,4 @@ Code:
                 (send dc set-text-foreground "black") 
 
                 (send dc draw-text "Quit!" 0 0))]) (send frame show #t); Show the frame. 
+                ```
