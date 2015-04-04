@@ -21,7 +21,7 @@ Code is super easy in markdown, which you can easily do inline `(require net/url
 (display-pure-port myport)
 ```
 
-### My Library: (library name here)
+### My Library: Plot
 Write what you did!
 Remember that this report must include:
  
@@ -33,6 +33,28 @@ Remember that this report must include:
 The narrative itself should be no longer than 350 words. Yes, you can add more files and link or refer to them. This is github, handling files is awesome and easy!
 
 Ask questions publicly in the Piazza group.
+I found a graphing/plotting library from the Racket website. I included the library at the top of the file.
+Then I was able to follow the documentation and edit different pieces of the code in order to produce a graph. I am able to change the colors, width, etc...
+
+'''
+#lang racket
+(require plot)
+(parameterize ([line-color  "blue"]
+[interval-color  "red"]
+[interval-line1-color  "red"]
+[interval-line2-color  "red"]
+[interval-line1-width  3]
+[interval-line2-width  3])
+(plot (for/list ([i  (in-range 7)])
+(function-interval
+(λ (x) (* i 1.5)) (λ (x) (+ 1 (* i 1.5)))
+#:style i #:line1-style i #:line2-style i))
+ #:x-min -8 #:x-max 8))
+'''
+
+<img src=http://imgur.com/yjdl6FT>
+
+![Output Screenshot](http://imgur.com/yjdl6FT)
 
 ### How to Do and Submit this assignment
 
