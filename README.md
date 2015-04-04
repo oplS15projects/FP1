@@ -1,6 +1,10 @@
 # Final Project Assignment 1: Exploration (FP1) 
 DUE March 25, 2015 Wednesday (2015-03-25)
 
+The code uses function divides? which checks if the first argument divides the second argument with no remainder. 
+I chose the function from library math/number theory.
+
+
 Full assignment specfication is [on Piazza.][piazza]
 
 Write your report right in this file. Instructions are below. You can delete them if you like, or just leave them at the bottom.
